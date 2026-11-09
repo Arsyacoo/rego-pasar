@@ -1,0 +1,26 @@
+# Final commodity list from phase 1 (docs/data-sources.md, section 5).
+# panel_id = komoditas id at Panel Harga Pangan, consumer level (level_harga_id=3).
+# pihps_id = closest PIHPS commodity, for cross-checks only (never shown on the page).
+- {id: beras-premium, name: Beras Premium, category: beras, unit: kg, panel_id: 27, pihps_id: com_5}
+- {id: beras-medium, name: Beras Medium, category: beras, unit: kg, panel_id: 28, pihps_id: com_3}
+- {id: beras-sphp, name: Beras SPHP, category: beras, unit: kg, panel_id: 109, pihps_id: null}
+- {id: jagung-tk-peternak, name: Jagung Pakan (Tingkat Peternak), category: beras, unit: kg, panel_id: 102, pihps_id: null}
+- {id: kedelai-biji-kering-impor, name: Kedelai Impor, category: beras, unit: kg, panel_id: 29, pihps_id: null}
+- {id: bawang-merah, name: Bawang Merah, category: bumbu, unit: kg, panel_id: 30, pihps_id: com_11}
+- {id: bawang-putih-bonggol, name: Bawang Putih Bonggol, category: bumbu, unit: kg, panel_id: 31, pihps_id: com_12}
+- {id: cabai-merah-keriting, name: Cabai Merah Keriting, category: bumbu, unit: kg, panel_id: 32, pihps_id: com_14}
+- {id: cabai-merah-besar, name: Cabai Merah Besar, category: bumbu, unit: kg, panel_id: 126, pihps_id: com_13}
+- {id: cabai-rawit-merah, name: Cabai Rawit Merah, category: bumbu, unit: kg, panel_id: 33, pihps_id: com_16}
+- {id: garam-konsumsi, name: Garam Konsumsi, category: bumbu, unit: kg, panel_id: 107, pihps_id: null}
+- {id: daging-sapi-murni, name: Daging Sapi Murni, category: daging-telur, unit: kg, panel_id: 34, pihps_id: com_8}
+- {id: daging-ayam-ras, name: Daging Ayam Ras, category: daging-telur, unit: kg, panel_id: 35, pihps_id: com_7}
+- {id: telur-ayam-ras, name: Telur Ayam Ras, category: daging-telur, unit: kg, panel_id: 36, pihps_id: com_10}
+- {id: ikan-kembung, name: Ikan Kembung, category: ikan, unit: kg, panel_id: 104, pihps_id: null}
+- {id: ikan-tongkol, name: Ikan Tongkol, category: ikan, unit: kg, panel_id: 105, pihps_id: null}
+- {id: ikan-bandeng, name: Ikan Bandeng, category: ikan, unit: kg, panel_id: 106, pihps_id: null}
+- {id: minyak-goreng-kemasan, name: Minyak Goreng Kemasan, category: minyak-gula-tepung, unit: liter, panel_id: 38, pihps_id: com_18}
+- {id: minyak-goreng-curah, name: Minyak Goreng Curah, category: minyak-gula-tepung, unit: liter, panel_id: 101, pihps_id: com_17}
+- {id: minyakita, name: Minyakita, category: minyak-gula-tepung, unit: liter, panel_id: 127, pihps_id: null}
+- {id: gula-konsumsi, name: Gula Konsumsi, category: minyak-gula-tepung, unit: kg, panel_id: 37, pihps_id: com_21}
+- {id: tepung-terigu-kemasan, name: Tepung Terigu Kemasan, category: minyak-gula-tepung, unit: kg, panel_id: 108, pihps_id: null}
+- {id: tepung-terigu-curah, name: Tepung Terigu Curah, category: minyak-gula-tepung, unit: kg, panel_id: 40, pihps_id: null}

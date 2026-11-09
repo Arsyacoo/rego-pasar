@@ -1,0 +1,53 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "design/b-papan.html"
+        ],
+        "createdAt": "2026-11-07T07:41:36.542Z",
+        "reason": "Claude triage: only hit is the full-width footer top band, not a card side accent"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "design/c-penunjuk.html"
+        ],
+        "createdAt": "2026-11-07T07:41:36.856Z",
+        "reason": "Claude triage: only hit is the full-width footer top band, not a card side accent"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "web/index.html"
+        ],
+        "createdAt": "2026-11-08T04:33:46.644Z",
+        "reason": "Finish reviewer + Claude: static scan misses stylesheet imported via src/main.ts; rendered sizes are 28px wordmark, 30-46px lead, 16px body"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          "design/b-papan.html"
+        ],
+        "createdAt": "2026-11-08T04:39:10.452Z",
+        "reason": "Claude triage: unchosen direction mockup kept as decision record (design/DECISION.md); its own fonts are intentional"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          "design/c-penunjuk.html"
+        ],
+        "createdAt": "2026-11-08T04:39:10.762Z",
+        "reason": "Claude triage: unchosen direction mockup kept as decision record (design/DECISION.md); its own fonts are intentional"
+      }
+    ]
+  }
+}

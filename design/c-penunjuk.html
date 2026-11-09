@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rego Pasar · Mockup C: Papan penunjuk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sign: #ffc80a; --sign-ink: #111111; --sign-ink-2: #3d3200;
+  --ground: #f1f2f2; --panel: #ffffff; --ink: #111111; --ink-2: #4f4f4f; --rule: #d3d5d5; --black: #111111; --on-black: #f4f4f4; --on-black-2: #b9b9b9;
+  --up: #c22a20; --down: #10784a; --up-sq: #c22a20; --down-sq: #10784a; --focus: #1d5fd6;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0b0b0b; --panel: #161616; --ink: #f2f2f2; --ink-2: #b3b3b3; --rule: #2d2d2d; --black: #000000; --on-black: #f4f4f4; --on-black-2: #b0b0b0;
+    --up: #ff6f63; --down: #4fcd86; --up-sq: #b8322a; --down-sq: #17804f; --focus: #ffc80a;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 400 16px/1.5 "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, sans-serif; font-variant-numeric: tabular-nums; }
+::selection { background: var(--sign); color: var(--sign-ink); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+a { color: inherit; text-underline-offset: 3px; }
+.ico { flex: none; display: block; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.sq { display: inline-grid; place-items: center; flex: none; background: var(--black); color: #fff; border-radius: 4px; }
+.sq.up { background: var(--up-sq); } .sq.down { background: var(--down-sq); }
+
+/* header band */
+.top { background: var(--sign); color: var(--sign-ink); border-bottom: 2px solid var(--sign-ink); }
+.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-top: 14px; padding-bottom: 14px; }
+.brand { display: flex; align-items: center; gap: 12px; margin: 0; }
+.brand .sq { width: 44px; height: 44px; }
+.brand b { display: block; font-size: 24px; line-height: 1; font-weight: 800; letter-spacing: -.01em; }
+.brand .bt span { display: block; font-size: 14px; font-weight: 500; color: var(--sign-ink-2); margin-top: 3px; }
+.where { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 14px; }
+.where label { display: flex; align-items: center; gap: 8px; font-weight: 700; }
+.where select { font: inherit; font-size: 16px; font-weight: 700; color: var(--sign-ink); background: transparent; border: 2px solid var(--sign-ink); border-radius: 4px; padding: 7px 34px 7px 10px; appearance: none; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: right 16px center, right 11px center; background-size: 5px 5px; background-repeat: no-repeat; }
+.where .date { color: var(--sign-ink-2); font-weight: 500; }
+
+/* answer sign */
+.answer { background: var(--sign); color: var(--sign-ink); view-transition-name: answer; }
+.answer .wrap { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(260px, 360px); align-items: center; gap: 18px 28px; padding-top: 26px; padding-bottom: 30px; }
+.answer .big-sq { width: clamp(64px, 8vw, 112px); height: clamp(64px, 8vw, 112px); }
+.answer .big-sq svg { width: 62%; height: 62%; }
+.answer .pct { display: block; font-size: clamp(56px, 9vw, 128px); line-height: .9; font-weight: 800; letter-spacing: -.035em; }
+.answer .what { display: block; margin-top: 8px; font-size: clamp(20px, 2.2vw, 30px); line-height: 1.15; font-weight: 700; }
+.answer .what span { font-weight: 400; }
+.routes { display: grid; gap: 8px; }
+.route { display: flex; align-items: center; gap: 12px; background: var(--panel); color: var(--ink); border-radius: 4px; padding: 10px 12px; }
+.route .sq { width: 36px; height: 36px; }
+.route small { display: block; font-size: 13px; color: var(--ink-2); }
+.route b { font-size: 17px; }
+.answer .note { grid-column: 2 / -1; margin: 0; font-size: 14px; color: var(--sign-ink-2); }
+
+/* slim sticky band (appears once the big sign scrolls away) */
+.band { position: fixed; inset: 0 0 auto 0; z-index: 10; background: var(--sign); color: var(--sign-ink); border-bottom: 2px solid var(--sign-ink); transform: translateY(-110%); transition: transform .35s cubic-bezier(.16,1,.3,1); }
+.band.on { transform: none; }
+.band .wrap { display: flex; align-items: center; gap: 12px; padding-top: 8px; padding-bottom: 8px; font-size: 16px; white-space: nowrap; overflow: hidden; }
+section[id], .panel { scroll-margin-top: 64px; }
+.band .sq { width: 30px; height: 30px; }
+.band b { font-weight: 800; }
+.band .sep { color: var(--sign-ink-2); }
+
+main { padding-top: 28px; }
+.two { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px; }
+h2.h { display: flex; align-items: center; gap: 10px; margin: 0; padding: 14px 16px; font-size: 20px; font-weight: 800; letter-spacing: -.01em; }
+h2.h small { font-size: 14px; font-weight: 400; color: var(--ink-2); margin-left: auto; }
+
+/* departures-style movers board */
+.board { background: var(--black); color: var(--on-black); border-radius: 6px; overflow: hidden; }
+.board h2.h small { color: var(--on-black-2); }
+.board ol { list-style: none; margin: 0; padding: 0 0 6px; }
+.board li { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 9px 16px; border-top: 1px solid #2a2a2a; }
+.board li .sq { width: 30px; height: 30px; }
+.board button { all: unset; cursor: pointer; font-size: 17px; font-weight: 500; }
+.board button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.board button:focus-visible { outline: 3px solid var(--sign); }
+.board .v { font-size: 20px; font-weight: 800; }
+.board .v.up { color: #ff7a6e; } .board .v.down { color: #5fd696; }
+.board li.sel { background: #222; }
+.board li.sel button { color: var(--sign); }
+
+.panel { background: var(--panel); border-radius: 6px; border: 1px solid var(--rule); }
+.seg { display: inline-flex; gap: 0; border: 2px solid var(--ink); border-radius: 4px; overflow: hidden; margin-left: auto; }
+.seg button { font: inherit; font-size: 14px; font-weight: 700; color: var(--ink); background: transparent; border: 0; padding: 5px 12px; cursor: pointer; }
+.seg button + button { border-left: 2px solid var(--ink); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--panel); }
+.chart { display: block; width: 100%; height: auto; }
+.chart .grid { stroke: var(--rule); }
+.chart .lbl { font: 400 12px "Atkinson Hyperlegible Next", sans-serif; fill: var(--ink-2); }
+.chart .line { fill: none; stroke: var(--ink); stroke-width: 2.6; stroke-linejoin: round; }
+.chart .end-sq { fill: var(--sign); stroke: var(--ink); stroke-width: 2; }
+.chart .end-lbl { font: 800 14px "Atkinson Hyperlegible Next", sans-serif; fill: var(--ink); }
+.cap { margin: 0; padding: 0 16px 14px; font-size: 14px; color: var(--ink-2); }
+
+/* list */
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; padding: 0 16px 14px; }
+.tabs button { display: inline-flex; align-items: center; gap: 8px; font: inherit; font-size: 15px; font-weight: 700; color: var(--ink); background: transparent; border: 2px solid var(--rule); border-radius: 4px; padding: 5px 12px 5px 5px; cursor: pointer; }
+.tabs button .sq { width: 28px; height: 28px; }
+.tabs button:hover { border-color: var(--ink); }
+.tabs button[aria-selected="true"] { background: var(--sign); border-color: var(--sign-ink); color: var(--sign-ink); }
+.tabs button.all { padding-left: 12px; }
+table { width: 100%; border-collapse: collapse; font-size: 16px; }
+th { text-align: left; font-size: 13px; font-weight: 700; color: var(--ink-2); padding: 10px 16px; border-bottom: 2px solid var(--ink); white-space: nowrap; }
+th button { all: unset; cursor: pointer; }
+th button:focus-visible { outline: 3px solid var(--focus); }
+td { padding: 11px 16px; border-bottom: 1px solid var(--rule); }
+.num { text-align: right; }
+tbody tr[data-c], tbody tr[data-r] { cursor: pointer; }
+tbody tr[data-c]:hover td, tbody tr[data-r]:hover td { background: color-mix(in srgb, var(--sign) 14%, transparent); }
+tr.sel td { background: color-mix(in srgb, var(--sign) 28%, transparent); }
+td .unit { color: var(--ink-2); font-size: 14px; }
+td .chg { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; }
+td .chg.up { color: var(--up); } td .chg.down { color: var(--down); } td .chg.none, td .chg.flat { color: var(--ink-2); font-weight: 400; }
+.flag { display: inline-flex; align-items: center; gap: 4px; margin-left: 8px; padding: 2px 8px 2px 4px; border-radius: 3px; background: var(--up-sq); color: #fff; font-size: 13px; font-weight: 700; vertical-align: 2px; }
+.nodata { color: var(--ink-2); font-style: italic; font-size: 15px; }
+.list-note { margin: 0; padding: 12px 16px 14px; font-size: 14px; color: var(--ink-2); }
+
+footer { margin-top: 44px; background: var(--black); color: var(--on-black-2); font-size: 14px; border-top: 8px solid var(--sign); }
+footer .wrap { padding-top: 22px; padding-bottom: 30px; display: grid; grid-template-columns: 2fr 1fr; gap: 12px 40px; }
+footer p { margin: 0 0 6px; }
+footer a, footer strong { color: var(--on-black); }
+
+@media (max-width: 980px) {
+  .answer .wrap { grid-template-columns: auto minmax(0, 1fr); }
+  .routes, .answer .note { grid-column: 1 / -1; }
+  .two { grid-template-columns: 1fr; }
+  footer .wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .wrap { padding: 0 14px; }
+  .answer .wrap { gap: 14px 14px; padding-top: 20px; padding-bottom: 22px; }
+  .band .wrap { font-size: 14px; gap: 8px; } .band .hide-sm { display: none; }
+  th, td { padding-left: 10px; padding-right: 10px; }
+  .col-diff { display: none; }
+  .tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 16px; }
+  .tabs button { flex: none; }
+  h2.h { flex-wrap: wrap; } h2.h small { margin-left: 0; flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .band { transition: none; } ::view-transition-group(*) { animation: none; } }
+</style>
+</head>
+<body>
+<div class="band" id="band" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <h1 class="brand"><span class="sq" id="logo"></span><span class="bt"><b>Rego Pasar</b><span>Harga pangan pokok di Yogyakarta</span></span></h1>
+    <div class="where">
+      <label for="region"><span id="pin"></span>Wilayah</label>
+      <select id="region"></select>
+      <span class="date" id="stamp"></span>
+    </div>
+  </div>
+</header>
+<section class="answer" id="answer" aria-live="polite"></section>
+
+<main class="wrap">
+  <div class="two">
+    <section class="board" aria-labelledby="boardH">
+      <h2 class="h" id="boardH">Gerak 7 hari<small>Rata-rata DIY</small></h2>
+      <ol id="movers"></ol>
+    </section>
+    <section class="panel" aria-labelledby="chartH">
+      <h2 class="h" id="chartH"></h2>
+      <svg class="chart" id="chart" viewBox="0 0 640 240" role="img"></svg>
+      <p class="cap" id="chartCap"></p>
+    </section>
+  </div>
+
+  <section class="panel" style="margin-top:24px" aria-labelledby="listH">
+    <h2 class="h" id="listH"></h2>
+    <div class="tabs" role="tablist" aria-label="Kategori" id="tabs"></div>
+    <div style="overflow-x:auto"><table>
+      <thead><tr><th>Komoditas</th><th class="num">Harga</th><th class="num">7 hari</th><th class="num col-diff">Selisih dari nasional</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <p class="list-note" id="listNote"></p>
+  </section>
+
+  <section class="panel" style="margin-top:24px" aria-labelledby="cmpH">
+    <h2 class="h" id="cmpH"></h2>
+    <table>
+      <thead><tr><th><button data-sort="name">Wilayah</button></th><th class="num"><button data-sort="price">Harga</button></th><th class="num"><button data-sort="diff">Selisih dari nasional</button></th></tr></thead>
+      <tbody id="cmp"></tbody>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p>Sumber: <a href="https://panelharga.badanpangan.go.id/">Panel Harga Pangan, Badan Pangan Nasional</a> (harga eceran).</p>
+      <p><strong>Rego Pasar bukan sumber harga resmi.</strong> Cek sumber aslinya sebelum mengambil keputusan.</p>
+      <p>Riwayat kabupaten/kota dan nasional baru dikumpulkan sejak 6 Nov 2026.</p>
+    </div>
+    <div><p id="footStamp"></p></div>
+  </div>
+</footer>
+
+<script src="sample-data.js"></script>
+<script src="shared.js"></script>
+<script>
+const D = R.data;
+const state = { region: "diy", cat: "semua", commodity: R.movers()[0].id, sort: { key: "price", dir: 1 }, range: 30 };
+
+/* pictograms: 24px, 2px stroke, white on black squares */
+const ICON = {
+  logo: '<path d="M4 10h16l-2 10H6z"/><path d="M8.5 10 12 4l3.5 6"/><path d="M9 14v3M15 14v3M12 14v3"/>',
+  beras: '<path fill="currentColor" stroke="none" d="M2.5 12.5h19c0 4.7-4.3 8.5-9.5 8.5s-9.5-3.8-9.5-8.5z"/><path fill="currentColor" stroke="none" d="M5 11c.7-3.4 3.6-5.5 7-5.5s6.3 2.1 7 5.5z"/>',
+  bumbu: '<path fill="currentColor" stroke="none" d="M9.5 7.5C8 14 11.5 18.8 21 20 13.5 23.2 4 19.6 4 12c0-2.6 1.5-4.5 5.5-4.5z"/><path d="M7.5 7.5c-.2-2.2 1.1-3.9 3.6-4.6"/>',
+  "daging-telur": '<path fill="currentColor" stroke="none" d="M12 2.5c4 0 7 5.6 7 10.5s-3.1 8.5-7 8.5-7-3.6-7-8.5 3-10.5 7-10.5z"/>',
+  ikan: '<path fill="currentColor" stroke="none" d="M6 12c2.5-3.8 6-5.5 9.6-5.5 3.6 0 5.9 2.6 6.9 5.5-1 2.9-3.3 5.5-6.9 5.5C12 17.5 8.5 15.8 6 12zM6 12 1.5 7.5v9z"/><circle cx="17.3" cy="11" r="1.1" fill="#000" stroke="none"/>',
+  "minyak-gula-tepung": '<path fill="currentColor" stroke="none" d="M9.5 2h5v3.2l2.3 3.3V20.5A1.5 1.5 0 0 1 15.3 22H8.7a1.5 1.5 0 0 1-1.5-1.5V8.5l2.3-3.3z"/><path stroke="#000" d="M7.5 13.5h9"/>',
+  pin: '<path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.2"/>',
+  right: '<path d="M4 12h15M13 6l6 6-6 6"/>',
+};
+const icon = (k, s = 18) => `<svg class="ico" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">${ICON[k]}</svg>`;
+const arrowSq = (dir, cls = "") => `<span class="sq ${dir === "up" ? "up" : dir === "down" ? "down" : ""} ${cls}">${R.arrow(dir === "none" ? "flat" : dir, 18)}</span>`;
+
+document.getElementById("logo").innerHTML = icon("logo", 26);
+document.getElementById("pin").innerHTML = icon("pin", 18);
+
+function withTransition(fn) {
+  if (document.startViewTransition && !matchMedia("(prefers-reduced-motion: reduce)").matches) document.startViewTransition(fn); else fn();
+}
+
+function drawHead() {
+  const sel = document.getElementById("region");
+  sel.innerHTML = D.regions.filter((r) => r.id !== "nasional").map((r) => `<option value="${r.id}"${r.id === state.region ? " selected" : ""}>${r.id === "diy" ? "Rata-rata DIY" : R.esc(r.name)}</option>`).join("");
+  sel.onchange = () => withTransition(() => { state.region = sel.value; render(); });
+  document.getElementById("stamp").textContent = `Harga per ${R.date(R.dataDate())}`;
+}
+
+/* the sign: always answers for the selected commodity (default: biggest rise in DIY) */
+function drawAnswer() {
+  const id = state.commodity, c = R.commodity(id), diy = R.item("diy", id), x = diy.change_7d_pct, dir = R.direction(x);
+  const ps = R.subRegions.map((r) => ({ name: r.name, p: R.item(r.id, id).price })).filter((v) => v.p != null).sort((a, b) => b.p - a.p);
+  const hi = ps[0], lo = ps[ps.length - 1], nat = R.item("nasional", id).price;
+  const sub = state.region === "diy" ? "" : ` Harga di ${R.esc(R.regionName(state.region))}: ${R.rp(R.item(state.region, id).price)}; perubahan 7 harinya belum ada (riwayat baru mulai 6 Nov 2026).`;
+  document.getElementById("answer").innerHTML = `<div class="wrap">
+      <span class="sq big-sq ${dir}">${R.arrow(dir === "none" ? "flat" : dir, 48).replace('width="48" height="48"', "")}</span>
+      <div><span class="pct">${R.pct(x)}</span><span class="what">${R.esc(c.name)} <span>${R.directionWord(x)} dalam 7 hari · ${R.rp(diy.price)}/${c.unit} rata-rata DIY</span></span></div>
+      <div class="routes">
+        <div class="route"><span class="sq">${icon("right", 20)}</span><span><small>Paling mahal</small><b>${R.esc(hi.name)} · ${R.rp(hi.p)}</b></span></div>
+        <div class="route"><span class="sq">${icon("right", 20)}</span><span><small>Paling murah</small><b>${R.esc(lo.name)} · ${R.rp(lo.p)}</b></span></div>
+      </div>
+      <p class="note">Nasional ${R.rp(nat)}/${c.unit}, per ${R.date(R.dataDate())}.${sub}</p>
+    </div>`;
+  document.getElementById("band").innerHTML = `<div class="wrap">${arrowSq(dir)}<b>${R.esc(c.name)} ${R.pct(x)}</b><span class="sep">·</span><span>${R.rp(diy.price)}/${c.unit}</span><span class="sep hide-sm">·</span><span class="hide-sm">Paling mahal ${R.esc(hi.name)}</span></div>`;
+}
+
+function drawMovers() {
+  const m = R.movers(), list = [...m.slice(0, 5), ...m.slice(-3)];
+  const ol = document.getElementById("movers");
+  ol.innerHTML = list.map((x) => { const d = R.direction(x.change_7d_pct); return `<li class="${x.id === state.commodity ? "sel" : ""}">${arrowSq(d)}<button data-c="${x.id}">${R.esc(x.name)}</button><span class="v ${d}">${R.pct(x.change_7d_pct)}</span></li>`; }).join("");
+  ol.querySelectorAll("button").forEach((b) => b.onclick = () => select(b.dataset.c));
+}
+
+function drawChart() {
+  const c = R.commodity(state.commodity), s = R.history(c.id, state.range).filter((p) => p[1] != null);
+  document.getElementById("chartH").innerHTML = `${R.esc(c.name)}<div class="seg" role="group" aria-label="Rentang">${[7, 30, 90].map((d) => `<button aria-pressed="${d === state.range}" data-d="${d}">${d} hari</button>`).join("")}</div>`;
+  document.querySelectorAll("#chartH .seg button").forEach((b) => b.onclick = () => { state.range = +b.dataset.d; drawChart(); });
+  const W = 640, H = 240, L = 58, Rr = 110, T = 16, B = 30, v = s.map((p) => p[1]);
+  const lo = Math.min(...v), hi = Math.max(...v), pad = (hi - lo) * .15 || hi * .02, y0 = lo - pad, y1 = hi + pad;
+  const x = (i) => L + i / (s.length - 1) * (W - L - Rr), y = (p) => T + (1 - (p - y0) / (y1 - y0)) * (H - T - B);
+  let g = "";
+  [0, .5, 1].forEach((f) => { const val = y0 + f * (y1 - y0); g += `<line class="grid" x1="${L}" x2="${W - Rr + 10}" y1="${y(val)}" y2="${y(val)}"/><text class="lbl" x="${L - 8}" y="${y(val) + 4}" text-anchor="end">${R.num(Math.round(val / 100) * 100)}</text>`; });
+  const pts = s.map((p, i) => `${x(i).toFixed(1)},${y(p[1]).toFixed(1)}`).join(" ");
+  const ex = x(s.length - 1), ey = y(v[v.length - 1]);
+  g += `<polyline class="line" points="${pts}"/><rect class="end-sq" x="${ex - 6}" y="${ey - 6}" width="12" height="12"/><text class="end-lbl" x="${ex + 12}" y="${ey + 5}">${R.rp(v[v.length - 1])}</text>`;
+  g += `<text class="lbl" x="${L}" y="${H - 6}">${R.date(s[0][0])}</text><text class="lbl" x="${ex}" y="${H - 6}" text-anchor="end">${R.date(s[s.length - 1][0])}</text>`;
+  document.getElementById("chart").innerHTML = `<title>Tren ${R.esc(c.name)}, rata-rata DIY, ${state.range} hari</title>` + g;
+  document.getElementById("chartCap").textContent = `Rata-rata DIY, ${state.range} hari: ${R.rp(v[0])} → ${R.rp(v[v.length - 1])}/${c.unit} (${R.pct((v[v.length - 1] - v[0]) / v[0] * 100)}).`;
+}
+
+function drawList() {
+  const reg = state.region;
+  document.getElementById("listH").innerHTML = `Semua harga<small>${reg === "diy" ? "Rata-rata DIY" : R.esc(R.regionName(reg))} · per ${R.date(R.dataDate())}</small>`;
+  const tabs = document.getElementById("tabs");
+  tabs.innerHTML = `<button class="all" role="tab" aria-selected="${state.cat === "semua"}" data-k="semua">Semua</button>` +
+    D.categories.map((k) => `<button role="tab" aria-selected="${k.id === state.cat}" data-k="${k.id}"><span class="sq">${icon(k.id, 20)}</span>${R.esc(k.name)}</button>`).join("");
+  tabs.querySelectorAll("button").forEach((b) => b.onclick = () => { state.cat = b.dataset.k; drawList(); });
+  document.getElementById("rows").innerHTML = D.commodities.filter((c) => state.cat === "semua" || c.category === state.cat).map((c) => {
+    const it = R.item(reg, c.id), d = R.diffNational(reg, c.id), dir = R.direction(it.change_7d_pct);
+    return `<tr data-c="${c.id}" class="${c.id === state.commodity ? "sel" : ""}" tabindex="0">
+      <td>${R.esc(c.name)}${it.spike ? `<span class="flag">${R.arrow("up", 12)}Lonjakan</span>` : ""}</td>
+      <td class="num">${it.price == null ? `<span class="nodata">tidak ada data</span>` : `${R.rp(it.price)}<span class="unit">/${c.unit}</span>`}</td>
+      <td class="num"><span class="chg ${dir}">${it.change_7d_pct == null ? "–" : R.arrow(dir, 14) + R.pct(it.change_7d_pct)}</span></td>
+      <td class="num col-diff">${d == null ? "–" : `<span class="chg ${d > 0 ? "up" : "down"}">${d > 0 ? "+" : "−"}${R.num(Math.abs(d))}</span>`}</td></tr>`;
+  }).join("");
+  document.querySelectorAll("#rows tr").forEach((tr) => {
+    tr.onclick = () => select(tr.dataset.c);
+    tr.onkeydown = (e) => { if (e.key === "Enter") select(tr.dataset.c); };
+  });
+  document.getElementById("listNote").textContent = reg === "diy" ? "Klik baris untuk melihat tren dan perbandingan wilayahnya." : `Perubahan 7 hari untuk ${R.regionName(reg)} belum ada: riwayatnya baru dikumpulkan sejak 6 Nov 2026.`;
+}
+
+function drawCompare() {
+  const id = state.commodity, c = R.commodity(id), nat = R.item("nasional", id).price;
+  document.getElementById("cmpH").innerHTML = `Antar wilayah: ${R.esc(c.name)}<small>per ${R.date(R.dataDate())}</small>`;
+  const rows = D.regions.filter((r) => r.id !== "nasional").map((r) => ({ id: r.id, name: r.id === "diy" ? "Rata-rata DIY" : r.name, price: R.item(r.id, id).price, diff: R.diffNational(r.id, id) }));
+  const { key, dir } = state.sort;
+  rows.sort((a, b) => (a[key] == null) - (b[key] == null) || (key === "name" ? a.name.localeCompare(b.name) : a[key] - b[key]) * dir);
+  document.getElementById("cmp").innerHTML = rows.map((r) => `<tr data-r="${r.id}" class="${r.id === state.region ? "sel" : ""}"><td>${R.esc(r.name)}</td><td class="num">${r.price == null ? `<span class="nodata">tidak ada data</span>` : R.rp(r.price)}</td><td class="num">${r.diff == null ? "–" : `<span class="chg ${r.diff > 0 ? "up" : "down"}">${R.arrow(r.diff > 0 ? "up" : "down", 14)}${R.num(Math.abs(r.diff))}</span>`}</td></tr>`).join("")
+    + `<tr><td><b>Nasional (acuan)</b></td><td class="num"><b>${R.rp(nat)}</b></td><td class="num">–</td></tr>`;
+  document.querySelectorAll("#cmp tr[data-r]").forEach((t) => t.onclick = () => withTransition(() => { state.region = t.dataset.r; render(); }));
+  document.querySelectorAll("th button[data-sort]").forEach((b) => {
+    b.parentElement.setAttribute("aria-sort", b.dataset.sort === key ? (dir > 0 ? "ascending" : "descending") : "none");
+    b.textContent = b.textContent.replace(/ [▲▼]$/, "") + (b.dataset.sort === key ? (dir > 0 ? " ▲" : " ▼") : "");
+    b.onclick = () => { state.sort = { key: b.dataset.sort, dir: state.sort.key === b.dataset.sort ? -state.sort.dir : 1 }; drawCompare(); };
+  });
+}
+
+function select(id) { withTransition(() => { state.commodity = id; render(); }); }
+function render() {
+  drawHead(); drawAnswer(); drawMovers(); drawChart(); drawList(); drawCompare();
+  document.getElementById("footStamp").textContent = `Terakhir diperbarui ${R.updated()}.`;
+}
+render();
+new IntersectionObserver(([e]) => document.getElementById("band").classList.toggle("on", !e.isIntersecting), { rootMargin: "-1px 0px 0px 0px" })
+  .observe(document.getElementById("answer"));
+</script>
+</body>
+</html>

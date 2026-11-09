@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rego Pasar · Harga pangan pokok di Yogyakarta</title>
+  <meta name="description" content="Harga eceran bahan pangan pokok di DIY: rata-rata provinsi, lima kabupaten/kota, dan pembanding nasional. Diperbarui tiap pagi dari Panel Harga Pangan.">
+  <meta name="theme-color" content="#12385a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312385a'/%3E%3Cpath d='M4 26 13 9l5 9 3-4 7 12z' fill='%23e6d58a'/%3E%3C/svg%3E">
+  <script type="module" src="./src/main.ts"></script>
+</head>
+<body>
+  <a class="skip" href="#daftar">Langsung ke daftar harga</a>
+  <header class="collar">
+    <div class="collar-in">
+      <div class="title-row">
+        <div class="brand"><h1 class="wordmark">Rego Pasar</h1><p class="tagline">Harga pangan pokok di Yogyakarta</p></div>
+        <p class="stamp" id="stamp"><span class="on">Memuat harga…</span></p>
+      </div>
+      <nav class="region-tabs" aria-label="Pilih wilayah" id="regionTabs"></nav>
+      <p class="tab-note" id="tabNote"></p>
+    </div>
+  </header>
+
+  <main class="sheet" id="app" aria-busy="true">
+    <section class="top">
+      <div class="answer" id="answer"></div>
+      <section class="panel mapbox" aria-labelledby="mapTitle">
+        <div class="panel-h">
+          <h2 class="caps" id="mapTitle">Lebih mahal atau murah dari rata-rata DIY?</h2>
+          <label class="select"><span class="vh">Komoditas di peta</span><select id="mapCommodity"></select></label>
+        </div>
+        <div class="map-wrap"><svg class="map" id="map" role="group"></svg></div>
+        <div class="legend" id="legend"></div>
+        <p class="map-note">Warna tiap wilayah menunjukkan seberapa jauh harganya dari rata-rata DIY, sesuai skala di atas. Biru lebih murah, cokelat lebih mahal. Ketuk atau klik wilayah untuk memilihnya.</p>
+      </section>
+      <section class="panel compare" aria-labelledby="cmpTitle">
+        <div class="panel-h"><h2 class="caps" id="cmpTitle">Antar wilayah</h2><span class="muted" id="cmpStamp"></span></div>
+        <p class="panel-note" id="cmpNote"></p>
+        <table id="cmpTable">
+          <thead><tr>
+            <th scope="col"><button type="button" data-sort="name">Wilayah</button></th>
+            <th scope="col" class="num"><button type="button" data-sort="price">Harga</button></th>
+            <th scope="col" class="num"><button type="button" data-sort="diff">Selisih dari nasional</button></th>
+          </tr></thead>
+          <tbody id="cmp"></tbody>
+        </table>
+      </section>
+    </section>
+
+
+
+    <section class="lower">
+      <section class="panel list" id="daftar" aria-labelledby="listTitle">
+      <div class="panel-h">
+        <h2 class="caps" id="listTitle">Semua komoditas</h2>
+        <span class="muted" id="listStamp"></span>
+      </div>
+      <div class="cat-tabs" role="group" aria-label="Kategori" id="catTabs"></div>
+      <div class="table-wrap">
+        <table id="listTable">
+          <thead><tr>
+            <th scope="col"><button type="button" data-sort="name">Komoditas</button></th>
+            <th scope="col" class="num"><button type="button" data-sort="price">Harga</button></th>
+            <th scope="col" class="num col-7d"><button type="button" data-sort="change">7 hari</button></th>
+            <th scope="col" class="num col-diff"><button type="button" data-sort="diff">Selisih dari nasional</button></th>
+          </tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <p class="list-note" id="listNote"></p>
+    </section>
+      <section class="panel profile-panel" id="tren" aria-labelledby="profileTitle">
+        <div class="panel-h">
+          <h2 class="caps" id="profileTitle">Tren harga</h2>
+          <div class="seg" role="group" aria-label="Rentang waktu" id="range"></div>
+        </div>
+        <p class="panel-note" id="profileNote"></p>
+        <div class="profile-wrap"><svg class="profile" id="profile" role="img" aria-label="Grafik tren harga"></svg><div class="readout" id="readout" hidden></div></div>
+        <p class="chart-cap" id="profileCap"></p>
+      </section>
+
+    </section>
+  </main>
+
+  <p class="vh" id="announce" aria-live="polite"></p>
+
+  <footer class="foot">
+    <div class="foot-in">
+      <div>
+        <p>Sumber harga: <a href="https://panelharga.badanpangan.go.id/">Panel Harga Pangan, Badan Pangan Nasional</a>. Harga eceran (tingkat konsumen), kecuali jagung pakan yang memakai harga di tingkat peternak.</p>
+        <p><strong>Rego Pasar bukan sumber harga resmi.</strong> Cek sumber aslinya sebelum mengambil keputusan.</p>
+        <p id="historyNote"></p>
+        <p>Batas wilayah: <a href="https://www.geoboundaries.org/">geoBoundaries</a> (BPS, WFP, OCHA), lisensi CC BY 3.0 IGO.</p>
+      </div>
+      <div><p id="footStamp"></p></div>
+    </div>
+  </footer>
+  <noscript><p class="noscript">Halaman ini butuh JavaScript untuk menampilkan harga.</p></noscript>
+</body>
+</html>

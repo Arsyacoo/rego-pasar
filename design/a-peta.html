@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rego Pasar · Mockup A: Peta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --collar: #12385a; --collar-ink: #f2f6f8; --collar-ink-2: #b8cddd; --collar-rule: #2f5679;
+  --ground: #f6f8f4; --panel: #ffffff; --ink: #1b2326; --ink-2: #4b5759; --rule: #d6dbd3; --rule-strong: #1b2326;
+  --contour: #a46a3c; --up: #b8322a; --down: #1d64a8; --focus: #e0a000;
+  /* hypsometric steps: price vs national = elevation vs sea level */
+  --h-sea3: #3d77ad; --h-sea2: #78a7d2; --h-sea1: #b9d4ea; --h-coast: #eef1df;
+  --h-land1: #c3dca4; --h-land2: #e6d58a; --h-land3: #cf9f63;
+  --sel: #12385a;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --collar: #0a2236; --collar-ink: #e9f0f4; --collar-ink-2: #9db6c9; --collar-rule: #20425f;
+    --ground: #0e1517; --panel: #141d20; --ink: #e6ecea; --ink-2: #a3b1b0; --rule: #2a3739; --rule-strong: #c9d3d1;
+    --contour: #c8925f; --up: #ff7b6e; --down: #74b3ef; --focus: #ffc94a;
+    --h-sea3: #275a8a; --h-sea2: #3f78ad; --h-sea1: #6f9cc4; --h-coast: #c9cfb7;
+    --h-land1: #94b475; --h-land2: #c5b464; --h-land3: #b08250;
+    --sel: #ffc94a;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 400 16px/1.5 "Archivo", system-ui, sans-serif; font-variant-numeric: tabular-nums; }
+::selection { background: var(--h-land2); color: #1b2326; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.ico { flex: none; vertical-align: -2px; }
+.caps { font-stretch: 75%; text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
+
+/* collar = the map sheet's title band */
+.collar { background: var(--collar); color: var(--collar-ink); }
+.collar-in { max-width: 1240px; margin: 0 auto; padding: 18px 24px 0; }
+.title-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; }
+.wordmark { margin: 0; font-size: 28px; line-height: 1; font-weight: 800; font-stretch: 70%; text-transform: uppercase; letter-spacing: .06em; }
+.wordmark span { font-weight: 400; font-stretch: 100%; text-transform: none; letter-spacing: 0; font-size: 15px; color: var(--collar-ink-2); margin-left: 10px; }
+.stamp { font-size: 13px; color: var(--collar-ink-2); }
+.stamp b { color: var(--collar-ink); font-weight: 600; }
+.region-tabs { display: flex; gap: 2px; margin-top: 16px; overflow-x: auto; scrollbar-width: none; }
+.region-tabs::-webkit-scrollbar { display: none; }
+.region-tabs button { flex: none; border: 0; background: transparent; color: var(--collar-ink-2); font: inherit; font-size: 14px; font-weight: 600; font-stretch: 80%; text-transform: uppercase; letter-spacing: .07em; padding: 10px 14px 12px; cursor: pointer; border-bottom: 3px solid transparent; }
+.region-tabs button:hover { color: var(--collar-ink); }
+.region-tabs button[aria-selected="true"] { color: var(--collar-ink); border-bottom-color: var(--h-land2); }
+
+/* sheet = neatline frame */
+.sheet { max-width: 1240px; margin: 0 auto; padding: 28px 24px 0; }
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 28px; }
+.answer { grid-column: span 5; }
+.mapbox { grid-column: span 7; }
+.lead-h { margin: 0 0 6px; font-size: clamp(30px, 3.6vw, 46px); line-height: 1.05; font-weight: 800; letter-spacing: -.02em; text-wrap: balance; }
+.lead-h .up { color: var(--up); white-space: nowrap; }
+.lead-h .down { color: var(--down); white-space: nowrap; }
+.lead-sub { margin: 0 0 18px; color: var(--ink-2); max-width: 46ch; }
+.lead-price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; padding: 14px 0; border-top: 2px solid var(--rule-strong); border-bottom: 1px solid var(--rule); }
+.lead-price strong { font-size: 30px; font-weight: 700; letter-spacing: -.01em; }
+.lead-price span { color: var(--ink-2); font-size: 14px; }
+.lead-price .spike { color: #fff; font-size: 12px; }
+.spike { display: inline-flex; align-items: center; gap: 4px; background: #b3302a; color: #fff; font-size: 12px; font-weight: 700; font-stretch: 80%; text-transform: uppercase; letter-spacing: .08em; padding: 3px 8px 3px 6px; }
+.movers { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.movers h3 { margin: 0 0 6px; font-size: 12px; }
+.movers ol { list-style: none; margin: 0; padding: 0; }
+.movers li { display: flex; justify-content: space-between; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--rule); font-size: 14px; }
+.movers li button { all: unset; cursor: pointer; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+.movers li button:hover { text-decoration-color: currentColor; }
+.movers .v { display: inline-flex; align-items: center; gap: 3px; font-weight: 600; white-space: nowrap; }
+.up-t { color: var(--up); } .down-t { color: var(--down); } .flat-t { color: var(--ink-2); }
+
+.panel { background: var(--panel); border: 1px solid var(--rule); }
+.panel-h { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; padding: 12px 16px; border-bottom: 1px solid var(--rule); }
+.panel-h h2 { margin: 0; font-size: 13px; }
+select, .seg button { font: inherit; font-size: 14px; color: var(--ink); background: var(--panel); border: 1px solid var(--rule-strong); border-radius: 0; padding: 6px 30px 6px 10px; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: right 14px center, right 9px center; background-size: 5px 5px; background-repeat: no-repeat; cursor: pointer; }
+
+/* map */
+.map-wrap { position: relative; padding: 10px 16px 6px; }
+.map-svg { display: block; width: 100%; height: auto; }
+.map-svg .land { stroke: var(--panel); stroke-width: 1.4; cursor: pointer; transition: filter .2s; }
+.map-svg .land:hover { filter: brightness(1.06) saturate(1.1); }
+.map-svg .land.sel { stroke: var(--sel); stroke-width: 3; }
+.map-svg .lbl { font-family: "Archivo"; font-stretch: 72%; font-weight: 700; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; fill: #1b2326; paint-order: stroke; stroke: rgba(255,255,255,.85); stroke-width: 3px; stroke-linejoin: round; pointer-events: none; }
+.map-svg .lbl-price { font-family: "Archivo"; font-weight: 600; font-size: 12px; fill: #1b2326; paint-order: stroke; stroke: rgba(255,255,255,.85); stroke-width: 3px; pointer-events: none; }
+.map-svg .sea-lbl { font-family: "Archivo"; font-style: italic; font-size: 11px; letter-spacing: .35em; fill: var(--down); opacity: .9; }
+.map-svg .tick { stroke: var(--ink-2); stroke-width: 1; }
+.map-svg .tick-lbl { font-family: "Archivo"; font-size: 8.5px; fill: var(--ink-2); }
+.map-svg .frame { fill: none; stroke: var(--rule-strong); stroke-width: 1; }
+.map-svg .peak { fill: var(--contour); }
+.map-svg .peak-lbl { font-family: "Archivo"; font-style: italic; font-size: 9.5px; fill: var(--contour); }
+.map-svg .lead-line { stroke: #1b2326; stroke-width: .8; }
+.legend { display: flex; align-items: stretch; gap: 0; margin: 4px 16px 0; font-size: 11px; }
+.legend div { flex: 1; height: 12px; }
+.legend-cap { display: flex; justify-content: space-between; gap: 8px; margin: 4px 16px 14px; font-size: 12px; color: var(--ink-2); }
+.legend-cap b { color: var(--ink); font-weight: 600; }
+.map-note { margin: 0 16px 14px; font-size: 12px; color: var(--ink-2); }
+
+/* tables */
+.cat-tabs { display: flex; gap: 6px; flex-wrap: wrap; padding: 14px 16px 0; }
+.cat-tabs button { font: inherit; font-size: 14px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); padding: 6px 12px; cursor: pointer; }
+.cat-tabs button:hover { border-color: var(--rule-strong); }
+.cat-tabs button[aria-selected="true"] { background: var(--ink); color: var(--panel); border-color: var(--ink); }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th { text-align: left; font-size: 11px; font-weight: 600; font-stretch: 75%; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); padding: 12px 16px 8px; border-bottom: 2px solid var(--rule-strong); white-space: nowrap; }
+th.num, td.num { text-align: right; }
+td { padding: 10px 16px; border-bottom: 1px solid var(--rule); }
+tbody tr { cursor: pointer; }
+tbody tr:hover td { background: color-mix(in srgb, var(--h-coast) 45%, transparent); }
+tbody tr.sel td { background: color-mix(in srgb, var(--h-land1) 35%, transparent); }
+tbody tr.sel td:first-child { box-shadow: inset 3px 0 0 var(--sel); }
+td .unit { color: var(--ink-2); font-size: 13px; }
+td .chg { display: inline-flex; align-items: center; gap: 3px; font-weight: 600; }
+td .nodata { color: var(--ink-2); font-style: italic; font-size: 14px; }
+th button { all: unset; cursor: pointer; display: inline-flex; gap: 4px; align-items: center; }
+th button:focus-visible { outline: 2px solid var(--focus); }
+
+.lower { display: grid; grid-template-columns: 7fr 5fr; gap: 28px; margin-top: 28px; }
+.seg { display: inline-flex; }
+.seg button { padding: 5px 12px; cursor: pointer; margin-left: -1px; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--panel); }
+.profile { display: block; width: 100%; height: auto; }
+.profile .contour { stroke: var(--contour); stroke-width: .8; opacity: .55; }
+.profile .contour-lbl { font-family: "Archivo"; font-size: 10px; fill: var(--contour); }
+.profile .axis-lbl { font-family: "Archivo"; font-size: 10px; fill: var(--ink-2); }
+.profile .area { fill: var(--h-land1); opacity: .75; }
+.profile .line { fill: none; stroke: var(--ink); stroke-width: 1.8; }
+.profile .end { fill: var(--up); }
+.chart-cap { margin: 0; padding: 0 16px 14px; font-size: 13px; color: var(--ink-2); }
+
+footer { margin-top: 40px; background: var(--collar); color: var(--collar-ink-2); font-size: 14px; }
+footer .in { max-width: 1240px; margin: 0 auto; padding: 22px 24px 28px; display: grid; grid-template-columns: 2fr 1fr; gap: 16px 40px; }
+footer p { margin: 0 0 6px; }
+footer a { color: var(--collar-ink); }
+footer strong { color: var(--collar-ink); }
+
+@media (max-width: 960px) {
+  .answer, .mapbox { grid-column: 1 / -1; }
+  .lower { grid-template-columns: 1fr; }
+  footer .in { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .collar-in, .sheet { padding-left: 16px; padding-right: 16px; }
+  .sheet { padding-top: 20px; }
+  .grid { gap: 22px; }
+  .wordmark { font-size: 24px; }
+  .wordmark span { display: block; margin: 6px 0 0; }
+  .movers { grid-template-columns: 1fr; }
+  th, td { padding-left: 10px; padding-right: 10px; }
+  .col-diff { display: none; }
+  .map-wrap { padding: 6px 4px 2px; }
+  .cat-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+  .cat-tabs button { flex: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="collar">
+  <div class="collar-in">
+    <div class="title-row">
+      <h1 class="wordmark">Rego Pasar<span>Harga pangan pokok di Yogyakarta</span></h1>
+      <p class="stamp" id="stamp"></p>
+    </div>
+    <nav class="region-tabs" role="tablist" aria-label="Pilih wilayah" id="regionTabs"></nav>
+  </div>
+</header>
+
+<main class="sheet">
+  <section class="grid">
+    <div class="answer" id="answer" aria-live="polite"></div>
+    <div class="mapbox panel">
+      <div class="panel-h">
+        <h2 class="caps">Peta harga</h2>
+        <label><span class="sr" style="position:absolute;left:-9999px">Komoditas di peta</span><select id="mapCommodity"></select></label>
+      </div>
+      <div class="map-wrap"><svg class="map-svg" id="map" viewBox="0 0 470 384" role="img" aria-labelledby="mapTitle"><title id="mapTitle">Peta harga per kabupaten/kota</title></svg></div>
+      <div class="legend" id="legend" aria-hidden="true"></div>
+      <div class="legend-cap"><span>Lebih murah dari nasional</span><b id="seaLevel"></b><span>Lebih mahal</span></div>
+      <p class="map-note">Rata-rata nasional = permukaan laut. Makin dalam birunya, makin murah dibanding nasional. Klik wilayah untuk memilih. Peta skematis, bukan skala.</p>
+    </div>
+  </section>
+
+  <section class="panel" style="margin-top:28px" aria-labelledby="listTitle">
+    <div class="panel-h"><h2 class="caps" id="listTitle">Semua komoditas</h2><span class="stamp" style="color:var(--ink-2)" id="listStamp"></span></div>
+    <div class="cat-tabs" role="tablist" aria-label="Kategori" id="catTabs"></div>
+    <div style="overflow-x:auto"><table>
+      <thead><tr><th>Komoditas</th><th class="num">Harga</th><th class="num">7 hari</th><th class="num col-diff">Selisih dari nasional</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+  </section>
+
+  <section class="lower">
+    <div class="panel">
+      <div class="panel-h">
+        <h2 class="caps" id="profileTitle">Penampang harga</h2>
+        <div class="seg" role="group" aria-label="Rentang" id="range"></div>
+      </div>
+      <svg class="profile" id="profile" viewBox="0 0 640 250" role="img" aria-labelledby="profileTitle"></svg>
+      <p class="chart-cap" id="profileCap"></p>
+    </div>
+    <div class="panel">
+      <div class="panel-h"><h2 class="caps" id="cmpTitle">Antar wilayah</h2></div>
+      <table>
+        <thead><tr>
+          <th><button data-sort="name">Wilayah</button></th>
+          <th class="num" aria-sort="ascending"><button data-sort="price">Harga</button></th>
+          <th class="num"><button data-sort="diff">Selisih</button></th>
+        </tr></thead>
+        <tbody id="cmp"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="in">
+    <div>
+      <p>Sumber: <a href="https://panelharga.badanpangan.go.id/">Panel Harga Pangan, Badan Pangan Nasional</a>. Harga eceran (tingkat konsumen).</p>
+      <p><strong>Rego Pasar bukan sumber harga resmi.</strong> Cek sumber aslinya sebelum mengambil keputusan.</p>
+      <p>Riwayat kabupaten/kota dan nasional baru dikumpulkan sejak 6 Nov 2026, jadi perubahan 7 hari untuk wilayah itu belum tersedia.</p>
+    </div>
+    <div><p id="footStamp"></p></div>
+  </div>
+</footer>
+
+<script src="sample-data.js"></script>
+<script src="shared.js"></script>
+<script>
+const D = R.data;
+const state = { region: "diy", cat: "semua", commodity: R.movers()[0].id, range: 30, sort: { key: "price", dir: 1 } };
+
+/* ---------- schematic DIY map (lon/lat, simplified) ---------- */
+const P = {
+  M:[110.445,-7.54], S1:[110.53,-7.64], S2:[110.565,-7.735], J1:[110.505,-7.80], B0:[110.432,-7.792],
+  K1:[110.405,-7.768], K0:[110.345,-7.773], J2:[110.27,-7.80], W1:[110.24,-7.72], W2:[110.27,-7.64], W3:[110.36,-7.585],
+  K2:[110.42,-7.805], K3:[110.40,-7.842], K4:[110.35,-7.835],
+  B1:[110.21,-7.86], B2:[110.22,-7.93], C1:[110.20,-7.965], C2:[110.33,-8.02], G3:[110.45,-8.03], G2:[110.50,-7.935], G1:[110.535,-7.85],
+  KP1:[110.21,-7.60], KP2:[110.13,-7.635], KP3:[110.11,-7.70], KP4:[110.05,-7.78], C0:[110.02,-7.885],
+  E1:[110.65,-7.785], E2:[110.75,-7.775], E3:[110.84,-7.90], E4:[110.825,-8.03], C5:[110.84,-8.20], C4:[110.70,-8.17], C3:[110.56,-8.125],
+};
+const SHAPES = {
+  "sleman": ["M","S1","S2","J1","B0","K1","K0","J2","W1","W2","W3"],
+  "kota-yogyakarta": ["K0","K1","B0","K2","K3","K4"],
+  "bantul": ["J2","K0","K4","K3","K2","B0","J1","G1","G2","G3","C2","C1","B2","B1"],
+  "kulon-progo": ["KP1","W2","W1","J2","B1","B2","C1","C0","KP4","KP3","KP2"],
+  "gunungkidul": ["S2","E1","E2","E3","E4","C5","C4","C3","G3","G2","G1","J1"],
+};
+const LABELS = { "sleman":[110.40,-7.68], "kota-yogyakarta":[110.375,-7.805], "bantul":[110.33,-7.92], "kulon-progo":[110.13,-7.78], "gunungkidul":[110.66,-7.97] };
+const X = (lon) => (lon - 110.0) * 470 + 22, Y = (lat) => (-lat - 7.52) * 470 + 40;
+const pt = (k) => `${X(P[k][0]).toFixed(1)},${Y(P[k][1]).toFixed(1)}`;
+
+const BANDS = [
+  { max: -20, c: "--h-sea3", txt: "#fff" }, { max: -10, c: "--h-sea2" }, { max: -3, c: "--h-sea1" },
+  { max: 3, c: "--h-coast" }, { max: 10, c: "--h-land1" }, { max: 20, c: "--h-land2" }, { max: Infinity, c: "--h-land3" },
+];
+const bandFor = (pct) => BANDS.find((b) => pct <= b.max);
+
+function drawMap() {
+  const id = state.commodity, c = R.commodity(id), nat = R.item("nasional", id).price;
+  const svg = document.getElementById("map");
+  let s = `<title id="mapTitle">Peta harga ${R.esc(c.name)} per kabupaten/kota</title>`;
+  // graticule ticks on the neatline
+  s += `<rect class="frame" x="6" y="6" width="458" height="372"/>`;
+  [[110+10/60,"110°10′"],[110+20/60,"110°20′"],[110.5,"110°30′"],[110+40/60,"110°40′"]].forEach(([lon,l]) => {
+    const x = X(lon); s += `<line class="tick" x1="${x}" y1="6" x2="${x}" y2="12"/><text class="tick-lbl" x="${x+3}" y="16">${l} BT</text>`;
+  });
+  [[7+40/60,"7°40′"],[7+50/60,"7°50′"],[8,"8°00′"],[8+10/60,"8°10′"]].forEach(([lat,l]) => {
+    const y = Y(-lat); s += `<line class="tick" x1="458" y1="${y}" x2="464" y2="${y}"/><text class="tick-lbl" x="455" y="${y+3}" text-anchor="end">${l} LS</text>`;
+  });
+  for (const [rid, keys] of Object.entries(SHAPES)) {
+    const p = R.item(rid, id).price;
+    const pct = p == null || nat == null ? null : (p - nat) / nat * 100;
+    const fill = pct == null ? "var(--rule)" : `var(${bandFor(pct).c})`;
+    s += `<polygon class="land${state.region === rid ? " sel" : ""}" data-r="${rid}" points="${keys.map(pt).join(" ")}" fill="${fill}" tabindex="0" role="button" aria-label="${R.regionName(rid)}: ${p == null ? "tidak ada data" : R.rp(p)}"/>`;
+  }
+  // Merapi peak (northern tip of Sleman)
+  s += `<path class="peak" d="M${X(110.446)} ${Y(-7.543)-9}l6 9h-12z"/><text class="peak-lbl" x="${X(110.446)+9}" y="${Y(-7.543)-1}">G. Merapi</text>`;
+  s += `<text class="sea-lbl" x="${X(110.05)}" y="${Y(-8.14)}">SAMUDRA HINDIA</text>`;
+  for (const [rid, [lon, lat]] of Object.entries(LABELS)) {
+    const p = R.item(rid, id).price;
+    let x = X(lon), y = Y(lat);
+    if (rid === "kota-yogyakarta") { // small: label outside with a leader
+      s += `<line class="lead-line" x1="${x}" y1="${y}" x2="${x+70}" y2="${y-32}"/>`; x += 72; y -= 34;
+      s += `<text class="lbl" x="${x}" y="${y}">Kota Yogyakarta</text><text class="lbl-price" x="${x}" y="${y+14}">${p == null ? "tidak ada data" : R.rp(p)}</text>`;
+      continue;
+    }
+    s += `<text class="lbl" x="${x}" y="${y}" text-anchor="middle">${R.regionName(rid)}</text><text class="lbl-price" x="${x}" y="${y+14}" text-anchor="middle">${p == null ? "tidak ada data" : R.rp(p)}</text>`;
+  }
+  svg.innerHTML = s;
+  svg.querySelectorAll(".land").forEach((el) => {
+    const go = () => setRegion(el.dataset.r);
+    el.addEventListener("click", go);
+    el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+  });
+  document.getElementById("seaLevel").textContent = `Nasional ${R.rp(nat)}/${c.unit}`;
+}
+
+function drawLegend() {
+  document.getElementById("legend").innerHTML = BANDS.map((b) => `<div style="background:var(${b.c})"></div>`).join("");
+}
+
+/* ---------- answer block ---------- */
+function drawAnswer() {
+  const el = document.getElementById("answer");
+  const reg = state.region, inReg = R.regionName(reg);
+  const regionHas7d = D.commodities.some((c) => R.item(reg, c.id).change_7d_pct != null);
+  const movers = R.movers();
+  const top = movers[0], c = R.commodity(top.id);
+  const hist = R.history(top.id, 8), weekAgo = hist[0][1];
+  const rises = movers.filter((m) => m.change_7d_pct > 0).slice(1, 4);
+  const falls = movers.filter((m) => m.change_7d_pct < 0).slice(-3).reverse();
+  const li = (m) => `<li><button data-c="${m.id}">${R.esc(m.name)}</button><span class="v ${R.direction(m.change_7d_pct)}-t">${R.arrow(R.direction(m.change_7d_pct), 14)}${R.pct(m.change_7d_pct)}</span></li>`;
+  const note = reg === "diy" ? "" : regionHas7d ? "" :
+    `<p class="lead-sub">Perubahan 7 hari untuk ${R.esc(inReg)} belum ada (riwayatnya baru mulai 6 Nov 2026). Yang di bawah ini rata-rata DIY; harga ${R.esc(inReg)} ada di tabel dan peta.</p>`;
+  el.innerHTML = `
+    <h2 class="lead-h">${R.esc(c.name)} <span class="${R.direction(top.change_7d_pct)}">${R.directionWord(top.change_7d_pct)} ${R.pct(top.change_7d_pct).replace("+","")}</span> dalam seminggu</h2>
+    <p class="lead-sub">Kenaikan terbesar di DIY minggu ini, dibanding ${R.date(hist[0][0])}.</p>
+    ${note}
+    <div class="lead-price"><strong>${R.rp(top.price)}/${c.unit}</strong><span>dari ${R.rp(weekAgo)}</span>${top.spike ? `<span class="spike">${R.arrow("up", 12)}Lonjakan</span>` : ""}</div>
+    <div class="movers">
+      <div><h3 class="caps up-t">Ikut naik</h3><ol>${rises.map(li).join("")}</ol></div>
+      <div><h3 class="caps down-t">Paling turun</h3><ol>${falls.map(li).join("")}</ol></div>
+    </div>`;
+  el.querySelectorAll("button[data-c]").forEach((b) => b.addEventListener("click", () => setCommodity(b.dataset.c)));
+}
+
+/* ---------- list ---------- */
+function drawTabs() {
+  const regionTabs = document.getElementById("regionTabs");
+  regionTabs.innerHTML = D.regions.filter((r) => r.id !== "nasional").map((r) =>
+    `<button role="tab" aria-selected="${r.id === state.region}" data-r="${r.id}">${r.id === "diy" ? "Rata-rata DIY" : R.esc(r.name)}</button>`).join("");
+  regionTabs.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => setRegion(b.dataset.r)));
+  const cats = [{ id: "semua", name: "Semua" }, ...D.categories];
+  const catTabs = document.getElementById("catTabs");
+  catTabs.innerHTML = cats.map((c) => `<button role="tab" aria-selected="${c.id === state.cat}" data-k="${c.id}">${R.esc(c.name)}</button>`).join("");
+  catTabs.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => { state.cat = b.dataset.k; render(); }));
+}
+
+function drawRows() {
+  const reg = state.region;
+  const list = D.commodities.filter((c) => state.cat === "semua" || c.category === state.cat);
+  document.getElementById("listTitle").textContent = state.region === "diy" ? "Semua komoditas · rata-rata DIY" : `Semua komoditas · ${R.regionName(reg)}`;
+  document.getElementById("listStamp").textContent = `Harga per ${R.date(R.dataDate())}`;
+  document.getElementById("rows").innerHTML = list.map((c) => {
+    const it = R.item(reg, c.id), d = R.diffNational(reg, c.id), dir = R.direction(it.change_7d_pct);
+    return `<tr data-c="${c.id}" class="${c.id === state.commodity ? "sel" : ""}" tabindex="0">
+      <td>${R.esc(c.name)} ${it.spike ? `<span class="spike">${R.arrow("up", 12)}Lonjakan</span>` : ""}</td>
+      <td class="num">${it.price == null ? `<span class="nodata">tidak ada data</span>` : `${R.rp(it.price)}<span class="unit">/${c.unit}</span>`}</td>
+      <td class="num"><span class="chg ${dir}-t">${it.change_7d_pct == null ? "–" : R.arrow(dir, 14) + R.pct(it.change_7d_pct)}</span></td>
+      <td class="num col-diff">${d == null ? "–" : `<span class="chg ${d > 0 ? "up" : d < 0 ? "down" : "flat"}-t">${d > 0 ? "+" : d < 0 ? "−" : ""}${R.num(Math.abs(d))}</span>`}</td>
+    </tr>`;
+  }).join("");
+  document.querySelectorAll("#rows tr").forEach((tr) => {
+    tr.addEventListener("click", () => setCommodity(tr.dataset.c));
+    tr.addEventListener("keydown", (e) => { if (e.key === "Enter") setCommodity(tr.dataset.c); });
+  });
+}
+
+/* ---------- profile chart (DIY history) ---------- */
+function drawProfile() {
+  const c = R.commodity(state.commodity), series = R.history(c.id, state.range).filter((p) => p[1] != null);
+  const W = 640, H = 250, L = 16, Rm = 64, T = 18, B = 30;
+  const vals = series.map((p) => p[1]);
+  const lo = Math.min(...vals), hi = Math.max(...vals);
+  const step = niceStep((hi - lo) / 4 || hi * 0.02);
+  const y0 = Math.floor(lo / step) * step - step, y1 = Math.ceil(hi / step) * step;
+  const x = (i) => L + (i / (series.length - 1)) * (W - L - Rm);
+  const y = (v) => T + (1 - (v - y0) / (y1 - y0)) * (H - T - B);
+  let s = "";
+  for (let v = y0; v <= y1 + 1; v += step) s += `<line class="contour" x1="${L}" x2="${W - Rm + 6}" y1="${y(v)}" y2="${y(v)}"/><text class="contour-lbl" x="${W - Rm + 10}" y="${y(v) + 3}">${R.num(v)}</text>`;
+  const line = series.map((p, i) => `${x(i).toFixed(1)},${y(p[1]).toFixed(1)}`).join(" ");
+  s += `<polygon class="area" points="${L},${H - B} ${line} ${x(series.length - 1)},${H - B}"/><polyline class="line" points="${line}"/>`;
+  const last = series[series.length - 1];
+  s += `<circle class="end" cx="${x(series.length - 1)}" cy="${y(last[1])}" r="4"/>`;
+  s += `<text class="axis-lbl" x="${L}" y="${H - 10}">${R.date(series[0][0])}</text><text class="axis-lbl" x="${W - Rm}" y="${H - 10}" text-anchor="end">${R.date(last[0])}</text>`;
+  document.getElementById("profile").innerHTML = `<title>Tren harga ${R.esc(c.name)}, rata-rata DIY, ${state.range} hari</title>` + s;
+  document.getElementById("profileTitle").textContent = `Penampang harga · ${c.name}`;
+  const first = series[0][1];
+  document.getElementById("profileCap").textContent = `Rata-rata DIY, ${state.range} hari terakhir: dari ${R.rp(first)} ke ${R.rp(last[1])}/${c.unit} (${R.pct((last[1] - first) / first * 100)}). Garis kontur tiap ${R.rp(step)}.`;
+  document.getElementById("range").innerHTML = [7, 30, 90].map((d) => `<button aria-pressed="${d === state.range}" data-d="${d}">${d} hari</button>`).join("");
+  document.querySelectorAll("#range button").forEach((b) => b.addEventListener("click", () => { state.range = +b.dataset.d; drawProfile(); }));
+}
+function niceStep(raw) { const p = 10 ** Math.floor(Math.log10(raw)); return [1, 2, 2.5, 5, 10].map((m) => m * p).find((v) => v >= raw); }
+
+/* ---------- region comparison ---------- */
+function drawCompare() {
+  const id = state.commodity, c = R.commodity(id), nat = R.item("nasional", id).price;
+  document.getElementById("cmpTitle").textContent = `Antar wilayah · ${c.name}`;
+  const rows = D.regions.filter((r) => r.id !== "nasional").map((r) => ({ id: r.id, name: r.id === "diy" ? "Rata-rata DIY" : r.name, price: R.item(r.id, id).price, diff: R.diffNational(r.id, id) }));
+  const { key, dir } = state.sort;
+  rows.sort((a, b) => (a[key] == null) - (b[key] == null) || (key === "name" ? a.name.localeCompare(b.name) : a[key] - b[key]) * dir);
+  const tr = (r) => `<tr data-r="${r.id}" class="${r.id === state.region ? "sel" : ""}"><td>${R.esc(r.name)}</td>
+    <td class="num">${r.price == null ? `<span class="nodata">tidak ada data</span>` : R.rp(r.price)}</td>
+    <td class="num">${r.diff == null ? "–" : `<span class="chg ${r.diff > 0 ? "up" : "down"}-t">${R.arrow(r.diff > 0 ? "up" : "down", 13)}${R.num(Math.abs(r.diff))}</span>`}</td></tr>`;
+  document.getElementById("cmp").innerHTML = rows.map(tr).join("") +
+    `<tr style="cursor:default"><td><b>Nasional</b></td><td class="num"><b>${R.rp(nat)}</b></td><td class="num">acuan</td></tr>`;
+  document.querySelectorAll("#cmp tr[data-r]").forEach((t) => t.addEventListener("click", () => setRegion(t.dataset.r)));
+  document.querySelectorAll("th button[data-sort]").forEach((b) => {
+    const th = b.parentElement;
+    th.setAttribute("aria-sort", b.dataset.sort === key ? (dir > 0 ? "ascending" : "descending") : "none");
+    b.innerHTML = b.textContent.replace(/[▲▼]/g, "") + (b.dataset.sort === key ? (dir > 0 ? " ▲" : " ▼") : "");
+    b.onclick = () => { state.sort = { key: b.dataset.sort, dir: state.sort.key === b.dataset.sort ? -state.sort.dir : 1 }; drawCompare(); };
+  });
+}
+
+function drawMapSelect() {
+  const sel = document.getElementById("mapCommodity");
+  sel.innerHTML = D.categories.map((k) => `<optgroup label="${R.esc(k.name)}">${D.commodities.filter((c) => c.category === k.id).map((c) => `<option value="${c.id}"${c.id === state.commodity ? " selected" : ""}>${R.esc(c.name)}</option>`).join("")}</optgroup>`).join("");
+  sel.onchange = () => setCommodity(sel.value);
+}
+
+function setRegion(r) { state.region = r; render(); }
+function setCommodity(id) { state.commodity = id; render(); }
+function render() {
+  document.getElementById("stamp").innerHTML = `Harga per <b>${R.date(R.dataDate())}</b> · diperbarui ${R.updated()}`;
+  document.getElementById("footStamp").textContent = `Terakhir diperbarui ${R.updated()}.`;
+  drawTabs(); drawAnswer(); drawMapSelect(); drawMap(); drawRows(); drawProfile(); drawCompare();
+}
+drawLegend(); render();
+</script>
+</body>
+</html>

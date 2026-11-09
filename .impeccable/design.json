@@ -1,0 +1,639 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T11:38:26+07:00",
+  "title": "Design System: Rego Pasar",
+  "extensions": {
+    "colorMeta": {
+      "collar-sea": {
+        "role": "primary",
+        "displayName": "Collar Sea",
+        "canonical": "#12385a",
+        "oklch": "oklch(33.2% 0.074 249)",
+        "cssVar": "--collar",
+        "tonalRamp": [
+          "oklch(15% 0.074 249)",
+          "oklch(25% 0.074 249)",
+          "oklch(35% 0.074 249)",
+          "oklch(45% 0.074 249)",
+          "oklch(58% 0.074 249)",
+          "oklch(70% 0.074 249)",
+          "oklch(82% 0.074 249)",
+          "oklch(95% 0.037 249)"
+        ],
+        "darkCanonical": "#0a2236"
+      },
+      "collar-ink": {
+        "role": "neutral",
+        "displayName": "Collar Ink",
+        "canonical": "#f2f6f8",
+        "oklch": "oklch(97.1% 0.005 229)",
+        "cssVar": "--collar-ink",
+        "tonalRamp": [
+          "oklch(15% 0.005 229)",
+          "oklch(25% 0.005 229)",
+          "oklch(35% 0.005 229)",
+          "oklch(45% 0.005 229)",
+          "oklch(58% 0.005 229)",
+          "oklch(70% 0.005 229)",
+          "oklch(82% 0.005 229)",
+          "oklch(95% 0.003 229)"
+        ],
+        "darkCanonical": "#e9f0f4"
+      },
+      "collar-ink-muted": {
+        "role": "neutral",
+        "displayName": "Collar Ink Muted",
+        "canonical": "#b8cddd",
+        "oklch": "oklch(83.8% 0.032 241)",
+        "cssVar": "--collar-ink-2",
+        "tonalRamp": [
+          "oklch(15% 0.032 241)",
+          "oklch(25% 0.032 241)",
+          "oklch(35% 0.032 241)",
+          "oklch(45% 0.032 241)",
+          "oklch(58% 0.032 241)",
+          "oklch(70% 0.032 241)",
+          "oklch(82% 0.032 241)",
+          "oklch(95% 0.016 241)"
+        ],
+        "darkCanonical": "#9db6c9"
+      },
+      "sheet-ground": {
+        "role": "neutral",
+        "displayName": "Sheet Ground",
+        "canonical": "#f6f8f4",
+        "oklch": "oklch(97.7% 0.006 129)",
+        "cssVar": "--ground",
+        "tonalRamp": [
+          "oklch(15% 0.006 129)",
+          "oklch(25% 0.006 129)",
+          "oklch(35% 0.006 129)",
+          "oklch(45% 0.006 129)",
+          "oklch(58% 0.006 129)",
+          "oklch(70% 0.006 129)",
+          "oklch(82% 0.006 129)",
+          "oklch(95% 0.003 129)"
+        ],
+        "darkCanonical": "#0e1517"
+      },
+      "panel-white": {
+        "role": "neutral",
+        "displayName": "Panel White",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 90)",
+        "cssVar": "--panel",
+        "tonalRamp": [
+          "oklch(15% 0.000 90)",
+          "oklch(25% 0.000 90)",
+          "oklch(35% 0.000 90)",
+          "oklch(45% 0.000 90)",
+          "oklch(58% 0.000 90)",
+          "oklch(70% 0.000 90)",
+          "oklch(82% 0.000 90)",
+          "oklch(95% 0.000 90)"
+        ],
+        "darkCanonical": "#141d20"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1b2326",
+        "oklch": "oklch(25.0% 0.013 223)",
+        "cssVar": "--ink",
+        "tonalRamp": [
+          "oklch(15% 0.013 223)",
+          "oklch(25% 0.013 223)",
+          "oklch(35% 0.013 223)",
+          "oklch(45% 0.013 223)",
+          "oklch(58% 0.013 223)",
+          "oklch(70% 0.013 223)",
+          "oklch(82% 0.013 223)",
+          "oklch(95% 0.006 223)"
+        ],
+        "darkCanonical": "#e6ecea"
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Ink Muted",
+        "canonical": "#4b5759",
+        "oklch": "oklch(44.7% 0.015 209)",
+        "cssVar": "--ink-2",
+        "tonalRamp": [
+          "oklch(15% 0.015 209)",
+          "oklch(25% 0.015 209)",
+          "oklch(35% 0.015 209)",
+          "oklch(45% 0.015 209)",
+          "oklch(58% 0.015 209)",
+          "oklch(70% 0.015 209)",
+          "oklch(82% 0.015 209)",
+          "oklch(95% 0.008 209)"
+        ],
+        "darkCanonical": "#a3b1b0"
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#d6dbd3",
+        "oklch": "oklch(88.5% 0.012 133)",
+        "cssVar": "--rule",
+        "tonalRamp": [
+          "oklch(15% 0.012 133)",
+          "oklch(25% 0.012 133)",
+          "oklch(35% 0.012 133)",
+          "oklch(45% 0.012 133)",
+          "oklch(58% 0.012 133)",
+          "oklch(70% 0.012 133)",
+          "oklch(82% 0.012 133)",
+          "oklch(95% 0.006 133)"
+        ],
+        "darkCanonical": "#2a3739"
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Rule Strong",
+        "canonical": "#1b2326",
+        "oklch": "oklch(25.0% 0.013 223)",
+        "cssVar": "--rule-strong",
+        "tonalRamp": [
+          "oklch(15% 0.013 223)",
+          "oklch(25% 0.013 223)",
+          "oklch(35% 0.013 223)",
+          "oklch(45% 0.013 223)",
+          "oklch(58% 0.013 223)",
+          "oklch(70% 0.013 223)",
+          "oklch(82% 0.013 223)",
+          "oklch(95% 0.006 223)"
+        ],
+        "darkCanonical": "#c9d3d1"
+      },
+      "contour-brown": {
+        "role": "tertiary",
+        "displayName": "Contour Brown",
+        "canonical": "#8f5a30",
+        "oklch": "oklch(51.8% 0.090 57)",
+        "cssVar": "--contour",
+        "tonalRamp": [
+          "oklch(15% 0.090 57)",
+          "oklch(25% 0.090 57)",
+          "oklch(35% 0.090 57)",
+          "oklch(45% 0.090 57)",
+          "oklch(58% 0.090 57)",
+          "oklch(70% 0.090 57)",
+          "oklch(82% 0.090 57)",
+          "oklch(95% 0.045 57)"
+        ],
+        "darkCanonical": "#c8925f"
+      },
+      "rise-red": {
+        "role": "secondary",
+        "displayName": "Rise Red",
+        "canonical": "#b8322a",
+        "oklch": "oklch(52.2% 0.172 28)",
+        "cssVar": "--up",
+        "tonalRamp": [
+          "oklch(15% 0.160 28)",
+          "oklch(25% 0.160 28)",
+          "oklch(35% 0.160 28)",
+          "oklch(45% 0.160 28)",
+          "oklch(58% 0.160 28)",
+          "oklch(70% 0.160 28)",
+          "oklch(82% 0.160 28)",
+          "oklch(95% 0.080 28)"
+        ],
+        "darkCanonical": "#ff7b6e"
+      },
+      "fall-blue": {
+        "role": "secondary",
+        "displayName": "Fall Blue",
+        "canonical": "#1d64a8",
+        "oklch": "oklch(49.6% 0.128 252)",
+        "cssVar": "--down",
+        "tonalRamp": [
+          "oklch(15% 0.128 252)",
+          "oklch(25% 0.128 252)",
+          "oklch(35% 0.128 252)",
+          "oklch(45% 0.128 252)",
+          "oklch(58% 0.128 252)",
+          "oklch(70% 0.128 252)",
+          "oklch(82% 0.128 252)",
+          "oklch(95% 0.064 252)"
+        ],
+        "darkCanonical": "#74b3ef"
+      },
+      "spike-red": {
+        "role": "secondary",
+        "displayName": "Spike Red",
+        "canonical": "#b3302a",
+        "oklch": "oklch(51.1% 0.169 28)",
+        "cssVar": "--spike-bg",
+        "tonalRamp": [
+          "oklch(15% 0.160 28)",
+          "oklch(25% 0.160 28)",
+          "oklch(35% 0.160 28)",
+          "oklch(45% 0.160 28)",
+          "oklch(58% 0.160 28)",
+          "oklch(70% 0.160 28)",
+          "oklch(82% 0.160 28)",
+          "oklch(95% 0.080 28)"
+        ]
+      },
+      "focus-ochre": {
+        "role": "neutral",
+        "displayName": "Focus Ochre",
+        "canonical": "#a87000",
+        "oklch": "oklch(67.9% 0.142 76)",
+        "cssVar": "--focus",
+        "tonalRamp": [
+          "oklch(15% 0.142 76)",
+          "oklch(25% 0.142 76)",
+          "oklch(35% 0.142 76)",
+          "oklch(45% 0.142 76)",
+          "oklch(58% 0.142 76)",
+          "oklch(70% 0.142 76)",
+          "oklch(82% 0.142 76)",
+          "oklch(95% 0.071 76)"
+        ],
+        "darkCanonical": "#ffc94a"
+      },
+      "sea-deep": {
+        "role": "tertiary",
+        "displayName": "Sea Deep",
+        "canonical": "#3d77ad",
+        "oklch": "oklch(55.5% 0.104 249)",
+        "cssVar": "--h-sea3",
+        "tonalRamp": [
+          "#3d77ad",
+          "#78a7d2",
+          "#b9d4ea",
+          "#ebe8da",
+          "#e8c985",
+          "#d7a35a",
+          "#ad6b35"
+        ],
+        "darkCanonical": "#2c639a",
+        "note": "Member of the project's own seven-step hypsometric scale; ramp shown is that scale."
+      },
+      "sea-mid": {
+        "role": "tertiary",
+        "displayName": "Sea Mid",
+        "canonical": "#78a7d2",
+        "oklch": "oklch(71.1% 0.081 247)",
+        "cssVar": "--h-sea2",
+        "tonalRamp": [
+          "#3d77ad",
+          "#78a7d2",
+          "#b9d4ea",
+          "#ebe8da",
+          "#e8c985",
+          "#d7a35a",
+          "#ad6b35"
+        ],
+        "darkCanonical": "#4b86bc",
+        "note": "Member of the project's own seven-step hypsometric scale; ramp shown is that scale."
+      },
+      "sea-shallow": {
+        "role": "tertiary",
+        "displayName": "Sea Shallow",
+        "canonical": "#b9d4ea",
+        "oklch": "oklch(85.7% 0.042 243)",
+        "cssVar": "--h-sea1",
+        "tonalRamp": [
+          "#3d77ad",
+          "#78a7d2",
+          "#b9d4ea",
+          "#ebe8da",
+          "#e8c985",
+          "#d7a35a",
+          "#ad6b35"
+        ],
+        "darkCanonical": "#86afd3",
+        "note": "Member of the project's own seven-step hypsometric scale; ramp shown is that scale."
+      },
+      "coast": {
+        "role": "tertiary",
+        "displayName": "Coast",
+        "canonical": "#ebe8da",
+        "oklch": "oklch(95.1% 0.024 115)",
+        "cssVar": "--h-coast",
+        "tonalRamp": [
+          "#3d77ad",
+          "#78a7d2",
+          "#b9d4ea",
+          "#ebe8da",
+          "#e8c985",
+          "#d7a35a",
+          "#ad6b35"
+        ],
+        "darkCanonical": "#d0d0c5",
+        "note": "Member of the project's own seven-step hypsometric scale; ramp shown is that scale."
+      },
+      "land-low": {
+        "role": "tertiary",
+        "displayName": "Land Low",
+        "canonical": "#e8c985",
+        "oklch": "oklch(86.2% 0.079 128)",
+        "cssVar": "--h-land1",
+        "tonalRamp": [
+          "#3d77ad",
+          "#78a7d2",
+          "#b9d4ea",
+          "#ebe8da",
+          "#e8c985",
+          "#d7a35a",
+          "#ad6b35"
+        ],
+        "darkCanonical": "#cdab68",
+        "note": "Member of the project's own seven-step hypsometric scale; ramp shown is that scale."
+      },
+      "land-mid": {
+        "role": "tertiary",
+        "displayName": "Land Mid",
+        "canonical": "#d7a35a",
+        "oklch": "oklch(87.0% 0.097 97)",
+        "cssVar": "--h-land2",
+        "tonalRamp": [
+          "#3d77ad",
+          "#78a7d2",
+          "#b9d4ea",
+          "#ebe8da",
+          "#e8c985",
+          "#d7a35a",
+          "#ad6b35"
+        ],
+        "darkCanonical": "#c38d4a",
+        "note": "Member of the project's own seven-step hypsometric scale; ramp shown is that scale."
+      },
+      "land-high": {
+        "role": "tertiary",
+        "displayName": "Land High",
+        "canonical": "#ad6b35",
+        "oklch": "oklch(73.4% 0.096 72)",
+        "cssVar": "--h-land3",
+        "tonalRamp": [
+          "#3d77ad",
+          "#78a7d2",
+          "#b9d4ea",
+          "#ebe8da",
+          "#e8c985",
+          "#d7a35a",
+          "#ad6b35"
+        ],
+        "darkCanonical": "#9a5f33",
+        "note": "Member of the project's own seven-step hypsometric scale; ramp shown is that scale."
+      },
+      "no-data": {
+        "role": "tertiary",
+        "displayName": "No Data",
+        "canonical": "#e3e6e1",
+        "oklch": "oklch(92.1% 0.007 132)",
+        "cssVar": "--h-none",
+        "tonalRamp": [
+          "oklch(15% 0.007 132)",
+          "oklch(25% 0.007 132)",
+          "oklch(35% 0.007 132)",
+          "oklch(45% 0.007 132)",
+          "oklch(58% 0.007 132)",
+          "oklch(70% 0.007 132)",
+          "oklch(82% 0.007 132)",
+          "oklch(95% 0.004 132)"
+        ],
+        "darkCanonical": "#3a4648"
+      },
+      "row-selected": {
+        "role": "neutral",
+        "displayName": "Row Selected",
+        "canonical": "#e3eaf0",
+        "oklch": "oklch(93.6% 0.027 130)",
+        "cssVar": "--row-sel",
+        "tonalRamp": [
+          "oklch(15% 0.027 130)",
+          "oklch(25% 0.027 130)",
+          "oklch(35% 0.027 130)",
+          "oklch(45% 0.027 130)",
+          "oklch(58% 0.027 130)",
+          "oklch(70% 0.027 130)",
+          "oklch(82% 0.027 130)",
+          "oklch(95% 0.014 130)"
+        ],
+        "darkCanonical": "#1c2b37"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The single answer headline."
+      },
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "REGO PASAR in the collar; 24px under 560px."
+      },
+      "headline": {
+        "displayName": "Lead Price",
+        "purpose": "Price under the answer headline."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text; supporting lines max 46ch."
+      },
+      "table": {
+        "displayName": "Table",
+        "purpose": "Data rows; 14px under 560px."
+      },
+      "label": {
+        "displayName": "Condensed Caps",
+        "purpose": "Panel titles, column heads, tabs (11-14px, wdth 75-80)."
+      },
+      "map-label": {
+        "displayName": "Map Lettering",
+        "purpose": "Regency names on the map with halo stroke; floor 11.5px."
+      },
+      "note": {
+        "displayName": "Note",
+        "purpose": "Captions, stamps, notes in Ink Muted (12-13px)."
+      }
+    },
+    "fonts": [
+      {
+        "family": "Archivo Variable",
+        "source": "@fontsource-variable/archivo/wdth.css",
+        "axes": {
+          "wdth": "62-125",
+          "wght": "100-900"
+        }
+      }
+    ],
+    "shadows": [
+      {
+        "name": "readout-lift",
+        "value": "0 4px 12px -6px rgba(0, 0, 0, .3)",
+        "purpose": "Chart readout over the price profile only."
+      }
+    ],
+    "focus": [
+      {
+        "name": "focus-ring",
+        "value": "outline: 2px solid var(--focus); outline-offset: 2px",
+        "purpose": "All focusable elements on the sheet."
+      },
+      {
+        "name": "focus-ring-collar",
+        "value": "outline-color: #e6d58a",
+        "purpose": "Region tabs (offset -2px) and footer links on the collar."
+      },
+      {
+        "name": "focus-map",
+        "value": "stroke: var(--focus); stroke-width: 3",
+        "purpose": "Focused regency on the map."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-map-fill",
+        "value": "fill .45s cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Map regency fill change when the commodity changes."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition: none",
+        "purpose": "All transitions off under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stack",
+        "value": "960px",
+        "purpose": "Grids collapse to one column; profile stops being sticky."
+      },
+      {
+        "name": "phone",
+        "value": "560px",
+        "purpose": "16px gutters, stacked movers, hidden diff column and map ticks, scrolling chips."
+      },
+      {
+        "name": "floor",
+        "value": "360px",
+        "purpose": "Minimum comfortable width, no horizontal page scroll."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Region Tabs",
+      "kind": "nav",
+      "refersTo": "region-tab",
+      "description": "Condensed-caps region selector on the sea-blue collar.",
+      "html": "<nav class=\"ds-tabs\"><button aria-pressed=\"true\">Rata-rata DIY</button><button aria-pressed=\"false\">Sleman</button><button aria-pressed=\"false\">Bantul</button></nav>",
+      "css": ".ds-tabs{display:flex;gap:2px;background:var(--collar,#12385a);padding:0 16px}.ds-tabs button{font-family:\"Archivo Variable\",system-ui,sans-serif;border:0;background:transparent;color:var(--collar-ink-2,#b8cddd);font-size:14px;font-weight:650;font-stretch:80%;text-transform:uppercase;letter-spacing:.07em;padding:10px 14px 12px;border-bottom:3px solid transparent;cursor:pointer}.ds-tabs button:hover{color:var(--collar-ink,#f2f6f8)}.ds-tabs button[aria-pressed=true]{color:var(--collar-ink,#f2f6f8);border-bottom-color:#e6d58a}.ds-tabs button:focus-visible{outline:2px solid #e6d58a;outline-offset:-2px}"
+    },
+    {
+      "name": "Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Square hairline panel with a condensed-caps header.",
+      "html": "<section class=\"ds-panel\"><div class=\"ds-panel-h\"><h2>Antar wilayah · Cabai Merah Keriting</h2><span>per 7 Nov 2026</span></div><p>Isi panel.</p></section>",
+      "css": ".ds-panel{font-family:\"Archivo Variable\",system-ui,sans-serif;background:var(--panel,#fff);color:var(--ink,#1b2326);border:1px solid var(--rule,#d6dbd3)}.ds-panel-h{display:flex;justify-content:space-between;gap:8px 16px;padding:12px 16px;border-bottom:1px solid var(--rule,#d6dbd3)}.ds-panel-h h2{margin:0;font-size:13px;font-weight:650;font-stretch:75%;text-transform:uppercase;letter-spacing:.08em}.ds-panel-h span{font-size:13px;color:var(--ink-2,#4b5759)}.ds-panel p{margin:0;padding:12px 16px}"
+    },
+    {
+      "name": "Filter Chips",
+      "kind": "chip",
+      "refersTo": "chip-filter",
+      "description": "Category tabs; active inverts to ink.",
+      "html": "<div class=\"ds-chips\"><button aria-pressed=\"true\">Semua</button><button aria-pressed=\"false\">Bumbu</button><button aria-pressed=\"false\">Ikan</button></div>",
+      "css": ".ds-chips{display:flex;gap:6px}.ds-chips button{font-family:\"Archivo Variable\",system-ui,sans-serif;font-size:14px;font-weight:500;color:var(--ink,#1b2326);border:1px solid var(--rule,#d6dbd3);background:transparent;padding:6px 12px;border-radius:0;cursor:pointer}.ds-chips button:hover{border-color:var(--rule-strong,#1b2326)}.ds-chips button[aria-pressed=true]{background:var(--ink,#1b2326);color:var(--panel,#fff);border-color:var(--ink,#1b2326)}.ds-chips button:focus-visible{outline:2px solid var(--focus,#a87000);outline-offset:2px}"
+    },
+    {
+      "name": "Segmented Control",
+      "kind": "button",
+      "refersTo": "segmented",
+      "description": "Joined range buttons for 7/30/90 hari.",
+      "html": "<div class=\"ds-seg\"><button aria-pressed=\"false\">7 hari</button><button aria-pressed=\"true\">30 hari</button><button aria-pressed=\"false\">90 hari</button></div>",
+      "css": ".ds-seg{display:inline-flex}.ds-seg button{font-family:\"Archivo Variable\",system-ui,sans-serif;font-size:14px;color:var(--ink,#1b2326);border:1px solid var(--rule-strong,#1b2326);background:var(--panel,#fff);padding:5px 12px;margin-left:-1px;border-radius:0;cursor:pointer}.ds-seg button[aria-pressed=true]{background:var(--ink,#1b2326);color:var(--panel,#fff)}.ds-seg button:focus-visible{outline:2px solid var(--focus,#a87000);outline-offset:2px}"
+    },
+    {
+      "name": "Select",
+      "kind": "input",
+      "refersTo": "select",
+      "description": "Square select with a gradient-drawn chevron.",
+      "html": "<select class=\"ds-select\"><option>Cabai Merah Keriting</option><option>Bawang Merah</option></select>",
+      "css": ".ds-select{font-family:\"Archivo Variable\",system-ui,sans-serif;font-size:14px;color:var(--ink,#1b2326);background-color:var(--panel,#fff);border:1px solid var(--rule-strong,#1b2326);border-radius:0;padding:6px 30px 6px 10px;appearance:none;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:right 14px center,right 9px center;background-size:5px 5px;background-repeat:no-repeat}.ds-select:focus-visible{outline:2px solid var(--focus,#a87000);outline-offset:2px}"
+    },
+    {
+      "name": "Spike Tag",
+      "kind": "chip",
+      "refersTo": "spike-tag",
+      "description": "Red block flag for a 7-day rise above 10%.",
+      "html": "<span class=\"ds-spike\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" style=\"vertical-align:-2px\"><path d=\"M8 13V3M3.5 7.5 8 3l4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\"/></svg>Lonjakan</span>",
+      "css": ".ds-spike{font-family:\"Archivo Variable\",system-ui,sans-serif;display:inline-flex;align-items:center;gap:4px;background:var(--spike-bg,#b3302a);color:#fff;font-size:12px;font-weight:700;font-stretch:80%;text-transform:uppercase;letter-spacing:.08em;padding:3px 8px 3px 6px}"
+    },
+    {
+      "name": "Price Row",
+      "kind": "custom",
+      "refersTo": "table-cell",
+      "description": "Commodity table rows with arrow-plus-colour change and a no-data cell.",
+      "html": "<table class=\"ds-table\"><thead><tr><th>Komoditas</th><th class=\"n\">Harga</th><th class=\"n\">7 hari</th></tr></thead><tbody><tr class=\"sel\"><th>Cabai Merah Keriting</th><td class=\"n\">Rp 60.435<span class=\"u\">/kg</span></td><td class=\"n up\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" style=\"vertical-align:-2px\"><path d=\"M8 13V3M3.5 7.5 8 3l4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\"/></svg>+10,1%</td></tr><tr><th>Daging Ayam Ras</th><td class=\"n\">Rp 35.857<span class=\"u\">/kg</span></td><td class=\"n dn\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" style=\"vertical-align:-2px\"><path d=\"M8 3v10M3.5 8.5 8 13l4.5-4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\"/></svg>−2,7%</td></tr><tr><th>Ikan Kembung</th><td class=\"n\"><i>tidak ada data</i></td><td class=\"n\">–</td></tr></tbody></table>",
+      "css": ".ds-table{font-family:\"Archivo Variable\",system-ui,sans-serif;border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums;color:var(--ink,#1b2326);background:var(--panel,#fff)}.ds-table thead th{text-align:left;font-size:11px;font-weight:650;font-stretch:75%;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2,#4b5759);padding:12px 16px 8px;border-bottom:2px solid var(--rule-strong,#1b2326)}.ds-table tbody th{text-align:left;font-weight:400}.ds-table tbody th,.ds-table td{padding:10px 16px;border-bottom:1px solid var(--rule,#d6dbd3)}.ds-table .n{text-align:right}.ds-table .u{color:var(--ink-2,#4b5759);font-size:13px}.ds-table i{color:var(--ink-2,#4b5759);font-size:14px}.ds-table .up{color:var(--up,#b8322a);font-weight:650}.ds-table .dn{color:var(--down,#1d64a8);font-weight:650}.ds-table tbody tr{cursor:pointer}.ds-table tbody tr:hover>*{background:var(--row-hover,#eff1ec)}.ds-table tbody tr.sel>*{background:var(--row-sel,#e3eaf0)}.ds-table tr.sel th{font-weight:700}"
+    },
+    {
+      "name": "Hypsometric Legend",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Seven-band price-vs-DIY-average ramp under the map.",
+      "html": "<div class=\"ds-legend\"><div class=\"ds-ramp\"><i style=\"background:var(--h-sea3,#3d77ad)\"></i><i style=\"background:var(--h-sea2,#78a7d2)\"></i><i style=\"background:var(--h-sea1,#b9d4ea)\"></i><i style=\"background:var(--h-coast,#ebe8da)\"></i><i style=\"background:var(--h-land1,#e8c985)\"></i><i style=\"background:var(--h-land2,#d7a35a)\"></i><i style=\"background:var(--h-land3,#ad6b35)\"></i></div><div class=\"ds-cap\"><span>Lebih murah dari rata-rata DIY</span><b>Rata-rata DIY Rp 60.435/kg</b><span>Lebih mahal</span></div></div>",
+      "css": ".ds-legend{font-family:\"Archivo Variable\",system-ui,sans-serif;max-width:520px}.ds-ramp{display:grid;grid-template-columns:repeat(7,1fr);height:12px}.ds-cap{display:flex;justify-content:space-between;gap:8px;margin-top:4px;font-size:12px;color:var(--ink-2,#4b5759)}.ds-cap b{color:var(--ink,#1b2326);font-weight:600}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Price Survey Sheet",
+    "overview": "Rego Pasar is drawn as an Indonesian topographic map sheet (Peta Rupabumi). The DIY average price is sea level; each regency is land or sea by how far its price sits above or below it. The national average stays as a number in the comparison table. A deep sea-blue collar band carries the title and region tabs, a near-white sheet holds square, hairline-ruled panels, and all colour that is not ink belongs either to the hypsometric scale or to the rise/fall pair.\n\nThe page is dense and calm, the density of a printed survey sheet rather than a dashboard. Depth comes from rules and tints, not from cards floating on shadows. Lettering follows map practice: condensed, letterspaced caps for place names and panel titles, a heavy upright grotesque for the one answer headline, and tabular numerals everywhere a price appears.\n\nThe signature is that the map and the chart are instruments, not decoration: the map is the region selector and the trend chart is an elevation profile with contour lines.",
+    "keyCharacteristics": [
+      "One typeface (Archivo Variable), varied by width and weight, never by family.",
+      "Square corners on every surface and control.",
+      "Hairline rules (1px) separate; a 2px ink rule opens a block.",
+      "Seven-step hypsometric ramp is the only categorical colour scale.",
+      "Direction always carries an SVG arrow and a colour together.",
+      "Light and dark themes follow the device; both are defined token-for-token."
+    ],
+    "rules": [
+      {
+        "name": "The Sea Level Rule",
+        "body": "Blue means cheaper than the DIY average; sand, ochre and brown mean dearer. The ramp is used only for regency price against the DIY average. Difference from national is a level, not a movement: it is set in Ink with an explicit sign and a percentage, never in Rise Red or Fall Blue.",
+        "section": "colors"
+      },
+      {
+        "name": "The Arrow-and-Colour Rule",
+        "body": "Rise Red and Fall Blue mark change over time only, and never appear on a number without the matching SVG arrow. Colour is never the only signal.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Rule",
+        "body": "`font-variant-numeric: tabular-nums` is set on body; every price column aligns digit for digit.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Contrast comes from width (wdth 62–125) and weight (100–900) of Archivo. No second family.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper Rule",
+        "body": "Panels sit on the sheet, they do not float. Use a 1px Rule border, not a shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** colour regency price against the DIY average only with the seven-step hypsometric ramp, banded at ±3, ±10, ±20 percent.",
+      "**Do** pair every rise or fall with an SVG arrow and Rise Red / Fall Blue.",
+      "**Do** use condensed letterspaced caps (wdth 70–80, 0.07–0.1em) for map names, panel titles, column heads, and tabs.",
+      "**Do** keep every corner square and separate with 1px Rule hairlines; open a block with a 2px Ink rule.",
+      "**Do** define every new colour in both the light and dark token sets.",
+      "**Do** show \"tidak ada data\" in italic Ink Muted wherever a price is null."
+    ],
+    "donts": [
+      "**Don't** add rounded corners, card shadows, or gradient fills to panels; the readout is the only shadow.",
+      "**Don't** reuse the ramp tints for categories, status, or decoration.",
+      "**Don't** introduce a second typeface; vary Archivo's width and weight instead.",
+      "**Don't** show direction by colour alone.",
+      "**Don't** build equal KPI tiles; the answer headline leads, the map compares."
+    ]
+  }
+}

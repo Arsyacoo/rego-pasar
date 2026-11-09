@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rego Pasar · Mockup B: Papan harga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --wall: #e8ecef; --board: #ffffff; --frame: #9ba6ae; --ink: #15191d; --ink-2: #505a63; --rule: #dde2e6;
+  --paint: #1446a0; --paint-ink: #ffffff; --paint-ink-2: #c6d5f2;
+  --tile: #fdfdfb; --tile-ink: #15191d; --tile-edge: #c3cad0;
+  --up: #c4271f; --up-ink: #ffffff; --down: #18753a; --down-ink: #ffffff; --flat: #6b757d; --up-bg: #c4271f; --down-bg: #18753a;
+  --focus: #f0a400;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --wall: #0d1013; --board: #161a1f; --frame: #3a434b; --ink: #eef1f3; --ink-2: #a5afb8; --rule: #2a3138;
+    --paint: #2152b8; --paint-ink: #ffffff; --paint-ink-2: #d3e0f9;
+    --tile: #232a31; --tile-ink: #f6f7f8; --tile-edge: #0b0e11;
+    --up: #ff6b5f; --down: #4cc277; --flat: #8c969e; --focus: #ffc23d; --up-bg: #b8322a; --down-bg: #1c7a3f;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--wall); color: var(--ink); font: 400 16px/1.5 "Bricolage Grotesque", system-ui, sans-serif; font-optical-sizing: auto; }
+::selection { background: var(--paint); color: #fff; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+a { color: inherit; text-underline-offset: 3px; }
+.ico { flex: none; }
+.wrap { max-width: 1260px; margin: 0 auto; padding: 0 24px; }
+
+/* painted header plate */
+.head { background: var(--paint); color: var(--paint-ink); }
+.head .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding-top: 18px; padding-bottom: 18px; }
+.brand { margin: 0; font-size: 30px; line-height: 1; font-weight: 800; letter-spacing: -.02em; }
+.brand small { display: block; margin-top: 6px; font-size: 15px; font-weight: 500; letter-spacing: 0; color: var(--paint-ink-2); }
+.head-meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 14px; color: var(--paint-ink-2); }
+.head-meta b { color: var(--paint-ink); font-weight: 600; }
+.region select { font: inherit; font-size: 15px; font-weight: 600; color: var(--ink); background: var(--board); border: 0; border-radius: 6px; padding: 9px 36px 9px 12px; appearance: none; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: right 17px center, right 12px center; background-size: 5px 5px; background-repeat: no-repeat; }
+
+/* lead strip */
+.lead { padding: 28px 0 8px; }
+.lead h2 { margin: 0; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.08; font-weight: 800; letter-spacing: -.025em; max-width: 24ch; text-wrap: balance; }
+.lead h2 em { font-style: normal; color: var(--up); white-space: nowrap; }
+.lead p { margin: 10px 0 0; color: var(--ink-2); max-width: 60ch; }
+
+.layout { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 28px; padding: 22px 0 0; align-items: start; }
+
+/* the board */
+.board { background: var(--board); border: 6px solid var(--frame); border-radius: 4px; box-shadow: 0 10px 24px -14px rgba(0,0,0,.35); }
+.board-tabs { display: flex; gap: 6px; flex-wrap: wrap; padding: 14px 16px; border-bottom: 2px solid var(--ink); }
+.board-tabs button { font: inherit; font-size: 15px; font-weight: 600; color: var(--ink); background: transparent; border: 2px solid var(--rule); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+.board-tabs button:hover { border-color: var(--ink-2); }
+.board-tabs button[aria-selected="true"] { background: var(--paint); color: var(--paint-ink); border-color: var(--paint); }
+.cat-band { margin: 0; padding: 8px 16px; background: var(--paint); color: var(--paint-ink); font: 600 15px/1.2 "Barlow Condensed", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) auto 112px 120px; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--rule); cursor: pointer; }
+.row:hover { background: color-mix(in srgb, var(--paint) 6%, transparent); }
+.row.sel { background: color-mix(in srgb, var(--paint) 12%, transparent); }
+.row .name { font-size: 17px; font-weight: 600; line-height: 1.25; }
+.row .name small { display: block; font-size: 13px; font-weight: 400; color: var(--ink-2); }
+.tiles { display: inline-flex; align-items: flex-end; gap: 3px; }
+.tiles .rp { font: 600 14px/1 "Barlow Condensed", sans-serif; color: var(--ink-2); margin-right: 4px; padding-bottom: 4px; }
+.tile { display: inline-grid; place-items: center; width: 22px; height: 32px; background: var(--tile); color: var(--tile-ink); border: 1px solid var(--tile-edge); border-radius: 2px;
+  box-shadow: 0 2px 2px -1px rgba(0,0,0,.25), inset 0 -2px 0 rgba(0,0,0,.06); font: 700 24px/1 "Barlow Condensed", sans-serif; font-variant-numeric: tabular-nums; }
+.tile.dot { width: 6px; background: none; border: 0; box-shadow: none; align-self: end; height: 10px; }
+.tiles .unit { font: 500 14px/1 "Barlow Condensed", sans-serif; color: var(--ink-2); margin-left: 4px; padding-bottom: 4px; }
+.tiles.empty { font-size: 14px; color: var(--ink-2); font-style: italic; }
+.tiles.anim .tile { animation: drop .32s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i) * 30ms); }
+@keyframes drop { from { transform: translateY(-6px); opacity: .2; } }
+.tag { justify-self: end; display: inline-flex; align-items: center; gap: 4px; padding: 5px 10px 5px 8px; border-radius: 3px; font: 700 17px/1 "Barlow Condensed", sans-serif; letter-spacing: .02em; white-space: nowrap; }
+.tag.up { background: var(--up-bg); color: var(--up-ink); }
+.tag.down { background: var(--down-bg); color: var(--down-ink); }
+.tag.flat, .tag.none { color: var(--flat); background: transparent; border: 1px solid var(--rule); }
+.diff { text-align: right; font: 600 16px/1.1 "Barlow Condensed", sans-serif; color: var(--ink-2); }
+.diff span { display: block; font: 400 12px/1.2 "Bricolage Grotesque", sans-serif; }
+.diff .up { color: var(--up); } .diff .down { color: var(--down); }
+.board-foot { padding: 12px 16px; font-size: 13px; color: var(--ink-2); }
+
+/* aside */
+aside { display: grid; gap: 20px; position: sticky; top: 16px; }
+.card { background: var(--board); border: 1px solid var(--rule); border-radius: 4px; }
+.card h3 { margin: 0; padding: 12px 16px 10px; font-size: 18px; font-weight: 700; letter-spacing: -.01em; border-bottom: 2px solid var(--ink); }
+.card h3 small { display: block; font-size: 13px; font-weight: 400; color: var(--ink-2); letter-spacing: 0; }
+.movers { list-style: none; margin: 0; padding: 4px 0; }
+.movers li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 8px 16px; }
+.movers li + li { border-top: 1px solid var(--rule); }
+.movers button { all: unset; cursor: pointer; font-weight: 500; }
+.movers button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.movers .tag { font-size: 15px; padding: 3px 8px 3px 6px; }
+.seg { display: inline-flex; gap: 4px; padding: 12px 16px 0; }
+.seg button { font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); background: transparent; border: 2px solid var(--rule); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--board); border-color: var(--ink); }
+.chart { display: block; width: 100%; height: auto; }
+.chart .grid { stroke: var(--rule); }
+.chart .lbl { font: 500 11px "Barlow Condensed", sans-serif; fill: var(--ink-2); }
+.chart .line { fill: none; stroke: var(--paint); stroke-width: 2.4; stroke-linejoin: round; }
+.chart .area { fill: var(--paint); opacity: .08; }
+.chart .end { fill: var(--paint); }
+.cap { margin: 0; padding: 4px 16px 14px; font-size: 13px; color: var(--ink-2); }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th { text-align: left; font: 600 13px/1 "Barlow Condensed", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); padding: 10px 16px 6px; }
+th button { all: unset; cursor: pointer; }
+th button:focus-visible { outline: 3px solid var(--focus); }
+td { padding: 8px 16px; border-top: 1px solid var(--rule); }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+td .up { color: var(--up); font-weight: 600; } td .down { color: var(--down); font-weight: 600; }
+tr.sel td { background: color-mix(in srgb, var(--paint) 10%, transparent); }
+tr[data-r] { cursor: pointer; }
+.nodata { color: var(--ink-2); font-style: italic; }
+
+footer { margin-top: 44px; border-top: 6px solid var(--paint); background: var(--board); font-size: 14px; color: var(--ink-2); }
+footer .wrap { padding-top: 20px; padding-bottom: 28px; display: grid; grid-template-columns: 2fr 1fr; gap: 12px 40px; }
+footer p { margin: 0 0 6px; }
+footer strong { color: var(--ink); }
+
+@media (max-width: 960px) {
+  .layout { grid-template-columns: 1fr; }
+  aside { position: static; }
+  footer .wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .wrap { padding: 0 14px; }
+  .head .wrap { padding-top: 14px; padding-bottom: 14px; }
+  .brand { font-size: 26px; }
+  .board { border-width: 4px; }
+  .row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "name tag" "price price"; gap: 6px 10px; padding: 10px 12px; }
+  .row .name { grid-area: name; } .row .tiles { grid-area: price; } .row .tag { grid-area: tag; } .row .diff { display: none; }
+  .tile { width: 20px; height: 29px; font-size: 22px; }
+  .board-tabs { padding: 12px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .board-tabs button { flex: none; }
+}
+@media (prefers-reduced-motion: reduce) { .tiles.anim .tile { animation: none; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <div class="wrap">
+    <h1 class="brand">Rego Pasar<small>Harga pangan pokok di Yogyakarta</small></h1>
+    <div class="head-meta">
+      <span id="stamp"></span>
+      <label class="region"><span style="position:absolute;left:-9999px">Wilayah</span><select id="region"></select></label>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="lead" id="lead" aria-live="polite"></section>
+  <div class="layout">
+    <section class="board" aria-labelledby="boardTitle">
+      <h2 id="boardTitle" style="position:absolute;left:-9999px">Daftar harga</h2>
+      <div class="board-tabs" role="tablist" aria-label="Kategori" id="tabs"></div>
+      <div id="board"></div>
+      <p class="board-foot" id="boardFoot"></p>
+    </section>
+    <aside>
+      <section class="card">
+        <h3>Gerak minggu ini<small>Rata-rata DIY, dibanding 7 hari lalu</small></h3>
+        <ol class="movers" id="movers"></ol>
+      </section>
+      <section class="card">
+        <h3 id="chartTitle"></h3>
+        <div class="seg" role="group" aria-label="Rentang" id="range"></div>
+        <svg class="chart" id="chart" viewBox="0 0 400 200" role="img"></svg>
+        <p class="cap" id="chartCap"></p>
+      </section>
+      <section class="card">
+        <h3 id="cmpTitle"></h3>
+        <table><thead><tr><th><button data-sort="name">Wilayah</button></th><th class="num"><button data-sort="price">Harga</button></th><th class="num"><button data-sort="diff">vs nasional</button></th></tr></thead><tbody id="cmp"></tbody></table>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p>Sumber: <a href="https://panelharga.badanpangan.go.id/">Panel Harga Pangan, Badan Pangan Nasional</a> (harga eceran).</p>
+      <p><strong>Rego Pasar bukan sumber harga resmi.</strong> Cek sumber aslinya sebelum mengambil keputusan.</p>
+      <p>Riwayat kabupaten/kota dan nasional baru dikumpulkan sejak 6 Nov 2026.</p>
+    </div>
+    <div><p id="footStamp"></p></div>
+  </div>
+</footer>
+
+<script src="sample-data.js"></script>
+<script src="shared.js"></script>
+<script>
+const D = R.data;
+const state = { region: "diy", cat: "semua", commodity: R.movers()[0].id, range: 30, sort: { key: "price", dir: 1 }, animate: false };
+
+function tiles(price, unit) {
+  if (price == null) return `<span class="tiles empty">tidak ada data</span>`;
+  const s = new Intl.NumberFormat("id-ID").format(price);
+  let i = 0;
+  const t = [...s].map((ch) => ch === "." ? `<span class="tile dot" aria-hidden="true">.</span>` : `<span class="tile" style="--i:${i++}" aria-hidden="true">${ch}</span>`).join("");
+  return `<span class="tiles${state.animate ? " anim" : ""}" role="text" aria-label="${R.rp(price)} per ${unit}"><span class="rp" aria-hidden="true">Rp</span>${t}<span class="unit" aria-hidden="true">/${unit}</span></span>`;
+}
+function tag(x, small) {
+  const d = R.direction(x);
+  return `<span class="tag ${d}">${d === "none" ? "" : R.arrow(d, small ? 12 : 14)}${x == null ? "–" : R.pct(x)}</span>`;
+}
+
+function drawHead() {
+  document.getElementById("stamp").innerHTML = `Harga per <b>${R.date(R.dataDate())}</b>`;
+  const sel = document.getElementById("region");
+  sel.innerHTML = D.regions.filter((r) => r.id !== "nasional").map((r) => `<option value="${r.id}"${r.id === state.region ? " selected" : ""}>${r.id === "diy" ? "Rata-rata DIY" : R.esc(r.name)}</option>`).join("");
+  sel.onchange = () => { state.region = sel.value; state.animate = true; render(); };
+}
+
+function drawLead() {
+  const m = R.movers(), top = m[0], c = R.commodity(top.id);
+  const prices = R.subRegions.map((r) => ({ name: r.name, p: R.item(r.id, top.id).price })).filter((x) => x.p != null).sort((a, b) => b.p - a.p);
+  const hi = prices[0], lo = prices[prices.length - 1];
+  document.getElementById("lead").innerHTML = `
+    <h2>${R.esc(c.name)} <em>${R.arrow("up", 30)} naik ${R.pct(top.change_7d_pct).replace("+", "")}</em> dalam seminggu</h2>
+    <p>Sekarang ${R.rp(top.price)}/${c.unit} rata-rata DIY. Paling mahal di ${R.esc(hi.name)} (${R.rp(hi.p)}), paling murah di ${R.esc(lo.name)} (${R.rp(lo.p)}).</p>`;
+}
+
+function drawBoard() {
+  const cats = [{ id: "semua", name: "Semua" }, ...D.categories];
+  const tabs = document.getElementById("tabs");
+  tabs.innerHTML = cats.map((k) => `<button role="tab" aria-selected="${k.id === state.cat}" data-k="${k.id}">${R.esc(k.name)}</button>`).join("");
+  tabs.querySelectorAll("button").forEach((b) => b.onclick = () => { state.cat = b.dataset.k; state.animate = false; render(); });
+  const reg = state.region;
+  let html = "";
+  for (const k of D.categories) {
+    if (state.cat !== "semua" && state.cat !== k.id) continue;
+    html += `<h3 class="cat-band">${R.esc(k.name)}</h3>`;
+    for (const c of D.commodities.filter((x) => x.category === k.id)) {
+      const it = R.item(reg, c.id), d = R.diffNational(reg, c.id);
+      html += `<div class="row${c.id === state.commodity ? " sel" : ""}" data-c="${c.id}" tabindex="0" role="button" aria-label="${R.esc(c.name)}">
+        <div class="name">${R.esc(c.name)}${it.spike ? `<small style="color:var(--up);font-weight:700">Lonjakan harga</small>` : ""}</div>
+        ${tiles(it.price, c.unit)}
+        ${tag(it.change_7d_pct)}
+        <div class="diff">${d == null ? "–" : `<b class="${d > 0 ? "up" : "down"}">${d > 0 ? "+" : "−"}${R.num(Math.abs(d))}</b>`}<span>vs nasional</span></div>
+      </div>`;
+    }
+  }
+  const board = document.getElementById("board");
+  board.innerHTML = html;
+  board.querySelectorAll(".row").forEach((r) => {
+    r.onclick = () => { state.commodity = r.dataset.c; state.animate = false; render(); };
+    r.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); r.click(); } };
+  });
+  document.getElementById("boardFoot").textContent = reg === "diy"
+    ? `Rata-rata DIY, harga eceran per ${R.date(R.dataDate())}. Persen = perubahan 7 hari.`
+    : `${R.regionName(reg)}, harga eceran per ${R.date(R.dataDate())}. Perubahan 7 hari belum ada: riwayat ${R.regionName(reg)} baru mulai 6 Nov 2026.`;
+}
+
+function drawMovers() {
+  const m = R.movers(), list = [...m.slice(0, 4), ...m.slice(-3)];
+  const ol = document.getElementById("movers");
+  ol.innerHTML = list.map((x) => `<li><button data-c="${x.id}">${R.esc(x.name)}</button>${tag(x.change_7d_pct, true)}</li>`).join("");
+  ol.querySelectorAll("button").forEach((b) => b.onclick = () => { state.commodity = b.dataset.c; render(); });
+}
+
+function drawChart() {
+  const c = R.commodity(state.commodity), s = R.history(c.id, state.range).filter((p) => p[1] != null);
+  document.getElementById("chartTitle").innerHTML = `${R.esc(c.name)}<small>Tren rata-rata DIY</small>`;
+  document.getElementById("range").innerHTML = [7, 30, 90].map((d) => `<button aria-pressed="${d === state.range}" data-d="${d}">${d} hari</button>`).join("");
+  document.querySelectorAll("#range button").forEach((b) => b.onclick = () => { state.range = +b.dataset.d; drawChart(); });
+  const W = 400, H = 200, L = 46, Rr = 12, T = 14, B = 26, v = s.map((p) => p[1]);
+  const lo = Math.min(...v), hi = Math.max(...v), pad = (hi - lo) * 0.15 || hi * 0.02;
+  const y0 = lo - pad, y1 = hi + pad;
+  const x = (i) => L + i / (s.length - 1) * (W - L - Rr), y = (p) => T + (1 - (p - y0) / (y1 - y0)) * (H - T - B);
+  let g = "";
+  [0, .5, 1].forEach((f) => { const val = y0 + f * (y1 - y0); g += `<line class="grid" x1="${L}" x2="${W - Rr}" y1="${y(val)}" y2="${y(val)}"/><text class="lbl" x="${L - 6}" y="${y(val) + 4}" text-anchor="end">${R.num(Math.round(val / 100) * 100)}</text>`; });
+  const pts = s.map((p, i) => `${x(i).toFixed(1)},${y(p[1]).toFixed(1)}`).join(" ");
+  g += `<polygon class="area" points="${L},${H - B} ${pts} ${x(s.length - 1)},${H - B}"/><polyline class="line" points="${pts}"/><circle class="end" r="4" cx="${x(s.length - 1)}" cy="${y(v[v.length - 1])}"/>`;
+  g += `<text class="lbl" x="${L}" y="${H - 6}">${R.date(s[0][0])}</text><text class="lbl" x="${W - Rr}" y="${H - 6}" text-anchor="end">${R.date(s[s.length - 1][0])}</text>`;
+  const chart = document.getElementById("chart");
+  chart.innerHTML = `<title>Tren ${R.esc(c.name)} ${state.range} hari</title>` + g;
+  document.getElementById("chartCap").textContent = `${state.range} hari terakhir: ${R.rp(v[0])} → ${R.rp(v[v.length - 1])}/${c.unit} (${R.pct((v[v.length - 1] - v[0]) / v[0] * 100)}).`;
+}
+
+function drawCompare() {
+  const id = state.commodity, c = R.commodity(id), nat = R.item("nasional", id).price;
+  document.getElementById("cmpTitle").innerHTML = `Antar wilayah<small>${R.esc(c.name)}, per ${R.date(R.dataDate())}</small>`;
+  const rows = D.regions.filter((r) => r.id !== "nasional").map((r) => ({ id: r.id, name: r.id === "diy" ? "Rata-rata DIY" : r.name, price: R.item(r.id, id).price, diff: R.diffNational(r.id, id) }));
+  const { key, dir } = state.sort;
+  rows.sort((a, b) => (a[key] == null) - (b[key] == null) || (key === "name" ? a.name.localeCompare(b.name) : a[key] - b[key]) * dir);
+  document.getElementById("cmp").innerHTML = rows.map((r) => `<tr data-r="${r.id}" class="${r.id === state.region ? "sel" : ""}"><td>${R.esc(r.name)}</td><td class="num">${r.price == null ? `<span class="nodata">tidak ada data</span>` : R.num(r.price)}</td><td class="num">${r.diff == null ? "–" : `<span class="${r.diff > 0 ? "up" : "down"}">${R.arrow(r.diff > 0 ? "up" : "down", 12)} ${R.num(Math.abs(r.diff))}</span>`}</td></tr>`).join("")
+    + `<tr><td><b>Nasional</b></td><td class="num"><b>${R.num(nat)}</b></td><td class="num">acuan</td></tr>`;
+  document.querySelectorAll("#cmp tr[data-r]").forEach((t) => t.onclick = () => { state.region = t.dataset.r; state.animate = true; render(); });
+  document.querySelectorAll("th button[data-sort]").forEach((b) => {
+    b.parentElement.setAttribute("aria-sort", b.dataset.sort === key ? (dir > 0 ? "ascending" : "descending") : "none");
+    b.textContent = b.textContent.replace(/ [▲▼]$/, "") + (b.dataset.sort === key ? (dir > 0 ? " ▲" : " ▼") : "");
+    b.onclick = () => { state.sort = { key: b.dataset.sort, dir: state.sort.key === b.dataset.sort ? -state.sort.dir : 1 }; drawCompare(); };
+  });
+}
+
+function render() {
+  drawHead(); drawLead(); drawBoard(); drawMovers(); drawChart(); drawCompare();
+  document.getElementById("footStamp").textContent = `Terakhir diperbarui ${R.updated()}.`;
+}
+render();
+</script>
+</body>
+</html>

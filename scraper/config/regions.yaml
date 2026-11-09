@@ -1,0 +1,30 @@
+# Region ids for Rego Pasar and their ids at Panel Harga Pangan (Bapanas).
+# province_id empty = national average. See docs/data-sources.md.
+- id: diy
+  name: DIY
+  panel_province_id: 14
+  panel_city_id: null
+- id: kota-yogyakarta
+  name: Kota Yogyakarta
+  panel_province_id: 14
+  panel_city_id: 225
+- id: sleman
+  name: Sleman
+  panel_province_id: 14
+  panel_city_id: 224
+- id: bantul
+  name: Bantul
+  panel_province_id: 14
+  panel_city_id: 222
+- id: kulon-progo
+  name: Kulon Progo
+  panel_province_id: 14
+  panel_city_id: 221
+- id: gunungkidul
+  name: Gunungkidul
+  panel_province_id: 14
+  panel_city_id: 223
+- id: nasional
+  name: Nasional
+  panel_province_id: null
+  panel_city_id: null

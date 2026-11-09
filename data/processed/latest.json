@@ -1,0 +1,1147 @@
+{
+ "updated_at": "2026-11-09T10:06:49+07:00",
+ "source": "Panel Harga Pangan, Badan Pangan Nasional",
+ "regions": {
+  "diy": {
+   "minyak-goreng-curah": {
+    "date": "2026-11-08",
+    "price": 18830,
+    "unit": "liter",
+    "change_7d_pct": 0.3,
+    "spike": false
+   },
+   "jagung-tk-peternak": {
+    "date": "2026-11-08",
+    "price": 7300,
+    "unit": "kg",
+    "change_7d_pct": 0.0,
+    "spike": false
+   },
+   "ikan-kembung": {
+    "date": "2026-11-08",
+    "price": 47750,
+    "unit": "kg",
+    "change_7d_pct": 1.5,
+    "spike": false
+   },
+   "ikan-tongkol": {
+    "date": "2026-11-08",
+    "price": 43706,
+    "unit": "kg",
+    "change_7d_pct": 0.8,
+    "spike": false
+   },
+   "ikan-bandeng": {
+    "date": "2026-11-08",
+    "price": 44231,
+    "unit": "kg",
+    "change_7d_pct": -1.0,
+    "spike": false
+   },
+   "garam-konsumsi": {
+    "date": "2026-11-08",
+    "price": 11795,
+    "unit": "kg",
+    "change_7d_pct": 1.4,
+    "spike": false
+   },
+   "tepung-terigu-kemasan": {
+    "date": "2026-11-08",
+    "price": 12040,
+    "unit": "kg",
+    "change_7d_pct": 0.3,
+    "spike": false
+   },
+   "beras-sphp": {
+    "date": "2026-11-08",
+    "price": 12360,
+    "unit": "kg",
+    "change_7d_pct": 0.1,
+    "spike": false
+   },
+   "cabai-merah-besar": {
+    "date": "2026-11-08",
+    "price": 50444,
+    "unit": "kg",
+    "change_7d_pct": 3.4,
+    "spike": false
+   },
+   "minyakita": {
+    "date": "2026-11-08",
+    "price": 16956,
+    "unit": "liter",
+    "change_7d_pct": -0.1,
+    "spike": false
+   },
+   "beras-premium": {
+    "date": "2026-11-08",
+    "price": 15400,
+    "unit": "kg",
+    "change_7d_pct": 1.1,
+    "spike": false
+   },
+   "beras-medium": {
+    "date": "2026-11-08",
+    "price": 13462,
+    "unit": "kg",
+    "change_7d_pct": 0.4,
+    "spike": false
+   },
+   "kedelai-biji-kering-impor": {
+    "date": "2026-11-08",
+    "price": 11627,
+    "unit": "kg",
+    "change_7d_pct": 2.3,
+    "spike": false
+   },
+   "bawang-merah": {
+    "date": "2026-11-08",
+    "price": 32862,
+    "unit": "kg",
+    "change_7d_pct": 2.6,
+    "spike": false
+   },
+   "bawang-putih-bonggol": {
+    "date": "2026-11-08",
+    "price": 32615,
+    "unit": "kg",
+    "change_7d_pct": 2.3,
+    "spike": false
+   },
+   "cabai-merah-keriting": {
+    "date": "2026-11-08",
+    "price": 61652,
+    "unit": "kg",
+    "change_7d_pct": 12.1,
+    "spike": true
+   },
+   "cabai-rawit-merah": {
+    "date": "2026-11-08",
+    "price": 58304,
+    "unit": "kg",
+    "change_7d_pct": -0.5,
+    "spike": false
+   },
+   "daging-sapi-murni": {
+    "date": "2026-11-08",
+    "price": 156765,
+    "unit": "kg",
+    "change_7d_pct": -0.2,
+    "spike": false
+   },
+   "daging-ayam-ras": {
+    "date": "2026-11-08",
+    "price": 35810,
+    "unit": "kg",
+    "change_7d_pct": -2.8,
+    "spike": false
+   },
+   "telur-ayam-ras": {
+    "date": "2026-11-08",
+    "price": 23880,
+    "unit": "kg",
+    "change_7d_pct": 0.2,
+    "spike": false
+   },
+   "gula-konsumsi": {
+    "date": "2026-11-08",
+    "price": 18074,
+    "unit": "kg",
+    "change_7d_pct": 0.5,
+    "spike": false
+   },
+   "minyak-goreng-kemasan": {
+    "date": "2026-11-08",
+    "price": 21588,
+    "unit": "liter",
+    "change_7d_pct": -0.8,
+    "spike": false
+   },
+   "tepung-terigu-curah": {
+    "date": "2026-11-08",
+    "price": 9841,
+    "unit": "kg",
+    "change_7d_pct": 0.7,
+    "spike": false
+   }
+  },
+  "bantul": {
+   "minyak-goreng-curah": {
+    "date": "2026-11-08",
+    "price": 19000,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "jagung-tk-peternak": {
+    "date": "2026-11-08",
+    "price": 7500,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-kembung": {
+    "date": "2026-11-08",
+    "price": 48333,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-tongkol": {
+    "date": "2026-11-08",
+    "price": 44000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-bandeng": {
+    "date": "2026-11-08",
+    "price": 47500,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "garam-konsumsi": {
+    "date": "2026-11-08",
+    "price": 6667,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "tepung-terigu-kemasan": {
+    "date": "2026-11-08",
+    "price": 12000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-sphp": {
+    "date": "2026-11-08",
+    "price": 12000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-merah-besar": {
+    "date": "2026-11-08",
+    "price": 56250,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "minyakita": {
+    "date": "2026-11-08",
+    "price": 19500,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-premium": {
+    "date": "2026-11-08",
+    "price": 16167,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-medium": {
+    "date": "2026-11-08",
+    "price": 13833,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "kedelai-biji-kering-impor": {
+    "date": "2026-11-08",
+    "price": 12300,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "bawang-merah": {
+    "date": "2026-11-08",
+    "price": 32800,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "bawang-putih-bonggol": {
+    "date": "2026-11-08",
+    "price": 30000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-merah-keriting": {
+    "date": "2026-11-08",
+    "price": 60000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-rawit-merah": {
+    "date": "2026-11-08",
+    "price": 58750,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "daging-sapi-murni": {
+    "date": "2026-11-08",
+    "price": 158333,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "daging-ayam-ras": {
+    "date": "2026-11-08",
+    "price": 33667,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "telur-ayam-ras": {
+    "date": "2026-11-08",
+    "price": 23000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "gula-konsumsi": {
+    "date": "2026-11-08",
+    "price": 18833,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "minyak-goreng-kemasan": {
+    "date": "2026-11-08",
+    "price": 22000,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "tepung-terigu-curah": {
+    "date": "2026-11-08",
+    "price": 10000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   }
+  },
+  "gunungkidul": {
+   "minyak-goreng-curah": {
+    "date": "2026-11-08",
+    "price": 18200,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "jagung-tk-peternak": {
+    "date": "2026-11-08",
+    "price": null,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-kembung": {
+    "date": "2026-11-08",
+    "price": 45667,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-tongkol": {
+    "date": "2026-11-08",
+    "price": 42333,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-bandeng": {
+    "date": "2026-11-08",
+    "price": 43333,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "garam-konsumsi": {
+    "date": "2026-11-08",
+    "price": 12900,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "tepung-terigu-kemasan": {
+    "date": "2026-11-08",
+    "price": 13583,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-sphp": {
+    "date": "2026-11-08",
+    "price": 12500,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-merah-besar": {
+    "date": "2026-11-08",
+    "price": 58000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "minyakita": {
+    "date": "2026-11-08",
+    "price": 18900,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-premium": {
+    "date": "2026-11-08",
+    "price": 15817,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-medium": {
+    "date": "2026-11-08",
+    "price": 13742,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "kedelai-biji-kering-impor": {
+    "date": "2026-11-08",
+    "price": 12133,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "bawang-merah": {
+    "date": "2026-11-08",
+    "price": 36714,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "bawang-putih-bonggol": {
+    "date": "2026-11-08",
+    "price": 34571,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-merah-keriting": {
+    "date": "2026-11-08",
+    "price": 71000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-rawit-merah": {
+    "date": "2026-11-08",
+    "price": 65000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "daging-sapi-murni": {
+    "date": "2026-11-08",
+    "price": 150000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "daging-ayam-ras": {
+    "date": "2026-11-08",
+    "price": 37667,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "telur-ayam-ras": {
+    "date": "2026-11-08",
+    "price": 24929,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "gula-konsumsi": {
+    "date": "2026-11-08",
+    "price": 18143,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "minyak-goreng-kemasan": {
+    "date": "2026-11-08",
+    "price": 21900,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "tepung-terigu-curah": {
+    "date": "2026-11-08",
+    "price": 10000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   }
+  },
+  "kota-yogyakarta": {
+   "minyak-goreng-curah": {
+    "date": "2026-11-08",
+    "price": 19571,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "jagung-tk-peternak": {
+    "date": "2026-11-08",
+    "price": null,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-kembung": {
+    "date": "2026-11-08",
+    "price": 47333,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-tongkol": {
+    "date": "2026-11-08",
+    "price": 46333,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-bandeng": {
+    "date": "2026-11-08",
+    "price": 45333,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "garam-konsumsi": {
+    "date": "2026-11-08",
+    "price": 12000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "tepung-terigu-kemasan": {
+    "date": "2026-11-08",
+    "price": 11100,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-sphp": {
+    "date": "2026-11-08",
+    "price": 12450,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-merah-besar": {
+    "date": "2026-11-08",
+    "price": 47143,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "minyakita": {
+    "date": "2026-11-08",
+    "price": 15700,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-premium": {
+    "date": "2026-11-08",
+    "price": 14991,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-medium": {
+    "date": "2026-11-08",
+    "price": 12800,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "kedelai-biji-kering-impor": {
+    "date": "2026-11-08",
+    "price": 11000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "bawang-merah": {
+    "date": "2026-11-08",
+    "price": 30714,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "bawang-putih-bonggol": {
+    "date": "2026-11-08",
+    "price": 34571,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-merah-keriting": {
+    "date": "2026-11-08",
+    "price": 56000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-rawit-merah": {
+    "date": "2026-11-08",
+    "price": 51571,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "daging-sapi-murni": {
+    "date": "2026-11-08",
+    "price": 154167,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "daging-ayam-ras": {
+    "date": "2026-11-08",
+    "price": 36333,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "telur-ayam-ras": {
+    "date": "2026-11-08",
+    "price": 23875,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "gula-konsumsi": {
+    "date": "2026-11-08",
+    "price": 17500,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "minyak-goreng-kemasan": {
+    "date": "2026-11-08",
+    "price": 20111,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "tepung-terigu-curah": {
+    "date": "2026-11-08",
+    "price": 9813,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   }
+  },
+  "kulon-progo": {
+   "minyak-goreng-curah": {
+    "date": "2026-11-08",
+    "price": 19000,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "jagung-tk-peternak": {
+    "date": "2026-11-08",
+    "price": 7233,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-kembung": {
+    "date": "2026-11-08",
+    "price": 55000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-tongkol": {
+    "date": "2026-11-08",
+    "price": 42000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-bandeng": {
+    "date": "2026-11-08",
+    "price": null,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "garam-konsumsi": {
+    "date": "2026-11-08",
+    "price": 16333,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "tepung-terigu-kemasan": {
+    "date": "2026-11-08",
+    "price": 12167,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-sphp": {
+    "date": "2026-11-08",
+    "price": 12000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-merah-besar": {
+    "date": "2026-11-08",
+    "price": 58333,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "minyakita": {
+    "date": "2026-11-08",
+    "price": 15833,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-premium": {
+    "date": "2026-11-08",
+    "price": 14950,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-medium": {
+    "date": "2026-11-08",
+    "price": 13838,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "kedelai-biji-kering-impor": {
+    "date": "2026-11-08",
+    "price": 11467,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "bawang-merah": {
+    "date": "2026-11-08",
+    "price": 25667,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "bawang-putih-bonggol": {
+    "date": "2026-11-08",
+    "price": 30333,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-merah-keriting": {
+    "date": "2026-11-08",
+    "price": 53333,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-rawit-merah": {
+    "date": "2026-11-08",
+    "price": 60000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "daging-sapi-murni": {
+    "date": "2026-11-08",
+    "price": 161667,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "daging-ayam-ras": {
+    "date": "2026-11-08",
+    "price": 36000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "telur-ayam-ras": {
+    "date": "2026-11-08",
+    "price": 24000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "gula-konsumsi": {
+    "date": "2026-11-08",
+    "price": 18833,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "minyak-goreng-kemasan": {
+    "date": "2026-11-08",
+    "price": 24333,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "tepung-terigu-curah": {
+    "date": "2026-11-08",
+    "price": 9333,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   }
+  },
+  "nasional": {
+   "minyak-goreng-curah": {
+    "date": "2026-11-08",
+    "price": 19017,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "jagung-tk-peternak": {
+    "date": "2026-11-08",
+    "price": 7403,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-kembung": {
+    "date": "2026-11-08",
+    "price": 46166,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-tongkol": {
+    "date": "2026-11-08",
+    "price": 38371,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-bandeng": {
+    "date": "2026-11-08",
+    "price": 37616,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "garam-konsumsi": {
+    "date": "2026-11-08",
+    "price": 11562,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "tepung-terigu-kemasan": {
+    "date": "2026-11-08",
+    "price": 13227,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-sphp": {
+    "date": "2026-11-08",
+    "price": 12460,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-merah-besar": {
+    "date": "2026-11-08",
+    "price": 61555,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "minyakita": {
+    "date": "2026-11-08",
+    "price": 16808,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-premium": {
+    "date": "2026-11-08",
+    "price": 16204,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-medium": {
+    "date": "2026-11-08",
+    "price": 13684,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "kedelai-biji-kering-impor": {
+    "date": "2026-11-08",
+    "price": 12020,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "bawang-merah": {
+    "date": "2026-11-08",
+    "price": 34509,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "bawang-putih-bonggol": {
+    "date": "2026-11-08",
+    "price": 35906,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-merah-keriting": {
+    "date": "2026-11-08",
+    "price": 79031,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-rawit-merah": {
+    "date": "2026-11-08",
+    "price": 85607,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "daging-sapi-murni": {
+    "date": "2026-11-08",
+    "price": 145707,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "daging-ayam-ras": {
+    "date": "2026-11-08",
+    "price": 38172,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "telur-ayam-ras": {
+    "date": "2026-11-08",
+    "price": 27943,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "gula-konsumsi": {
+    "date": "2026-11-08",
+    "price": 19152,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "minyak-goreng-kemasan": {
+    "date": "2026-11-08",
+    "price": 23001,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "tepung-terigu-curah": {
+    "date": "2026-11-08",
+    "price": 10156,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   }
+  },
+  "sleman": {
+   "minyak-goreng-curah": {
+    "date": "2026-11-08",
+    "price": 17600,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "jagung-tk-peternak": {
+    "date": "2026-11-08",
+    "price": null,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-kembung": {
+    "date": "2026-11-08",
+    "price": 44000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-tongkol": {
+    "date": "2026-11-08",
+    "price": 40000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "ikan-bandeng": {
+    "date": "2026-11-08",
+    "price": 39000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "garam-konsumsi": {
+    "date": "2026-11-08",
+    "price": 10000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "tepung-terigu-kemasan": {
+    "date": "2026-11-08",
+    "price": 12000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-sphp": {
+    "date": "2026-11-08",
+    "price": 12400,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-merah-besar": {
+    "date": "2026-11-08",
+    "price": 40000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "minyakita": {
+    "date": "2026-11-08",
+    "price": 15500,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-premium": {
+    "date": "2026-11-08",
+    "price": 15600,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "beras-medium": {
+    "date": "2026-11-08",
+    "price": 14233,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "kedelai-biji-kering-impor": {
+    "date": "2026-11-08",
+    "price": 11800,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "bawang-merah": {
+    "date": "2026-11-08",
+    "price": 34286,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "bawang-putih-bonggol": {
+    "date": "2026-11-08",
+    "price": 30429,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-merah-keriting": {
+    "date": "2026-11-08",
+    "price": 66667,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "cabai-rawit-merah": {
+    "date": "2026-11-08",
+    "price": 58333,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "daging-sapi-murni": {
+    "date": "2026-11-08",
+    "price": 165000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "daging-ayam-ras": {
+    "date": "2026-11-08",
+    "price": 33000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "telur-ayam-ras": {
+    "date": "2026-11-08",
+    "price": 22500,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "gula-konsumsi": {
+    "date": "2026-11-08",
+    "price": 18500,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "minyak-goreng-kemasan": {
+    "date": "2026-11-08",
+    "price": 22000,
+    "unit": "liter",
+    "change_7d_pct": null,
+    "spike": false
+   },
+   "tepung-terigu-curah": {
+    "date": "2026-11-08",
+    "price": 10000,
+    "unit": "kg",
+    "change_7d_pct": null,
+    "spike": false
+   }
+  }
+ }
+}

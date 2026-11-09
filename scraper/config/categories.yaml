@@ -1,0 +1,6 @@
+# Commodity categories, in page order. Ids are used by commodities.yaml.
+- {id: beras, name: Beras & biji-bijian}
+- {id: bumbu, name: Bumbu}
+- {id: daging-telur, name: Daging & telur}
+- {id: ikan, name: Ikan}
+- {id: minyak-gula-tepung, name: "Minyak, gula & tepung"}
