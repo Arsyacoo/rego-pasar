@@ -121,3 +121,7 @@ Publishing to GitHub Pages is currently switched off; the daily data update stil
 - **Price data:** [Panel Harga Pangan](https://panelharga.badanpangan.go.id/), Badan Pangan Nasional.
 - **Regency boundaries:** [geoBoundaries](https://www.geoboundaries.org/) (BPS, WFP, OCHA ROAP), CC BY 3.0 IGO.
 - **Typeface:** [Archivo](https://fonts.google.com/specimen/Archivo) by Omnibus-Type, SIL Open Font License, via Fontsource.
+
+## License
+
+The code is released under the [MIT License](LICENSE). The licence covers this project's own code and documents only. The price data belongs to Badan Pangan Nasional. The regency boundaries are CC BY 3.0 IGO and Archivo is under the SIL Open Font License, as credited above.
