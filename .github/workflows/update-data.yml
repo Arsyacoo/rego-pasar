@@ -1,6 +1,9 @@
 # Daily at 06:00 WIB (23:00 UTC): fetch yesterday's prices, rebuild data/processed/,
 # commit the new raw and processed files, then publish the page to GitHub Pages.
 # A push to main only republishes the page (no fetch).
+# Publishing is off until the repository variable PUBLISH_PAGES is "true"
+# (Settings > Secrets and variables > Actions > Variables) and Pages is enabled with
+# source "GitHub Actions". The daily fetch runs either way, so the history keeps growing.
 name: Update data and publish
 
 on:
@@ -52,8 +55,8 @@ jobs:
 
   publish:
     needs: update
-    # runs after a successful update, or on a push (where update is skipped)
-    if: always() && (needs.update.result == 'success' || needs.update.result == 'skipped')
+    # runs after a successful update, or on a push (where update is skipped), when publishing is switched on
+    if: always() && vars.PUBLISH_PAGES == 'true' && (needs.update.result == 'success' || needs.update.result == 'skipped')
     runs-on: ubuntu-latest
     environment:
       name: github-pages
